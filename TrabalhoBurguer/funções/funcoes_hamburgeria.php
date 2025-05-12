@@ -31,11 +31,11 @@ function salvarHamburger($conexao, $nome, $preco, $descricao){
 
 }
 
-function editarHamburger($conexao, $nome, $preco, $descricao):{
+function editarHamburger($conexao, $nome, $preco, $descricao){
 
 }
 
-function deletarHamburger($conexao, $idhamburger){
+function deletarHamburger ($conexao, $idhamburger){
 
 }
 
