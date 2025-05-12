@@ -5,16 +5,22 @@ function salvarCliente($conexao, $nome, $endereco, $telefone, $senha){
     $sql = "INSERT INTO cliente (nome, endereco, telefone, senha) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
     mysqli_stmt_bind_param($comando, 'sssss', $nome, $cpf, $endereco, $telefone, $senha_hash);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
 }
-function editarCliente($conexao, $nome, $cpf, $endereco, $telefone, $senha, $idcliente){
+function editarCliente($conexao, $nome, $endereco, $telefone, $senha, $idcliente){
+    $sql = "UPDATE tb_cliente SET nome=?, endereco=?, telefone=?, senha WHERE idcliente=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $endereco, $telefone, $senha, $idcliente);
+    
 
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou;
 }
 
 function deletarCliente($conexao, $idcliente){
