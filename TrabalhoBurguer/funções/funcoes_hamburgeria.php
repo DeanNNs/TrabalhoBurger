@@ -9,9 +9,12 @@ function salvarCliente($conexao, $nome, $endereco, $telefone, $senha){
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
+    // varchar, string, data -> s
+    // inteiro -> i
+    // dinheiro, decimal -> d
 }
 function editarCliente($conexao, $nome, $endereco, $telefone, $senha, $idcliente){
-    $sql = "UPDATE tb_cliente SET nome=?, endereco=?, telefone=?, senha WHERE idcliente=?";
+    $sql = "UPDATE cliente SET nome=?, endereco=?, telefone=?, senha WHERE idcliente=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'ssssi', $nome, $endereco, $telefone, $senha, $idcliente);
@@ -24,15 +27,41 @@ function editarCliente($conexao, $nome, $endereco, $telefone, $senha, $idcliente
 }
 
 function deletarCliente($conexao, $idcliente){
+    $sql = "DELETE FROM cliente WHERE idcliente = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
 
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
 }
 
 function salvarHamburger($conexao, $nome, $preco, $descricao){
-
+    $sql = "INSERT INTO hamburguer (nome, preco, descricao) VALUES (?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sds', $nome, $preco, $descricao,);
+    
+    mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    // varchar, string, data -> s
+    // inteiro -> i
+    // dinheiro, decimal -> d
 }
 
 function editarHamburger($conexao, $nome, $preco, $descricao){
+    $sql = "UPDATE hamburguer SET nome=?, preco=?, descricao=? WHERE idhamburger=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sdsi', $nome, $preco, $descricao, $idcliente);
+    
 
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou;
 }
 
 function deletarHamburger ($conexao, $idhamburger){
@@ -44,7 +73,16 @@ function listarHamburger($conexao){
 }
 
 function salvarBebidas($conexao, $tipo, $nome, $preco, $volume){
-
+    $sql = "INSERT INTO hamburguer (tipo, nome, preco, volume) VALUES (?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sds', $tipo, $nome, $preco, $volume,);
+    
+    mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    // varchar, string, data -> s
+    // inteiro -> i
+    // dinheiro, decimal -> d
 }
 
 function editarBebida($conexao, $tipo, $nome, $preco, $volume){
