@@ -65,11 +65,31 @@ function editarHamburger($conexao, $nome, $preco, $descricao){
 }
 
 function deletarHamburger ($conexao, $idhamburger){
+    $sql = "DELETE FROM hamburguer WHERE idhamburger = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $idhamburger);
 
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
 }
 
 function listarHamburger($conexao){
+    $sql = "SELECT * FROM hamburguer";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_hamburguer = [];
+    while ($hamburguer = mysqli_fetch_assoc($resultados)) {
+        $lista_hamburguer[] = $hamburguer;
+    }
+    mysqli_stmt_close($comando);
 
+    return $lista_hamburguer;
 }
 
 function salvarBebidas($conexao, $tipo, $nome, $preco, $volume){
