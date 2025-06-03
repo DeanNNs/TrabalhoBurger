@@ -380,20 +380,20 @@ function listarEntrega($conexao){
     return $lista_entrega;
 }
 
-function listarPedido($conexao){
-    $sql = "SELECT * FROM pedido";
+function listarCarrinho($conexao){
+    $sql = "SELECT * FROM carrinho";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
     
-    $lista_pedido = [];
-    while ($pedido = mysqli_fetch_assoc($resultados)) {
-        $lista_pedido[] = $pedido;
+    $lista_carrinho = [];
+    while ($carrinho = mysqli_fetch_assoc($resultados)) {
+        $lista_carrinho[] = $carrinho;
     }
     mysqli_stmt_close($comando);
 
-    return $lista_pedido;
+    return $lista_carrinho;
 }
 
 function validarCliente($conexao, $nome, $senha){
@@ -404,32 +404,45 @@ function validarAdministrador($conexao, $login, $senha){
 
 }
 
-function listarHistorico($conexao){
-    $sql = "SELECT * FROM entrega";
+function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
+$sql = "INSERT INTO montagem (hamburguer, presunto, mussarela, alface, tomate, salsicha, ovo, bacon, milho, batata, pao, frango, quantidade, idpedido, idhistórico) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'iiiiiiiiiiiiiii', $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico);
+    
+    mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    // varchar, string, data -> s
+    // inteiro -> i
+    // dinheiro, decimal -> d
+}
+
+function deletarMontagem($conexao, $idmontagem){
+$sql = "DELETE FROM montagem WHERE idmontagem = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $idmontagem);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+}
+
+function listarMontagem($conexao){
+    $sql = "SELECT * FROM montagem";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
     
-    $lista_entrega = [];
-    while ($entrega = mysqli_fetch_assoc($resultados)) {
-        $lista_entrega[] = $entrega;
+    $lista_montagem = [];
+    while ($carrinho = mysqli_fetch_assoc($resultados)) {
+        $lista_carrinho[] = $carrinho;
     }
     mysqli_stmt_close($comando);
 
-    return $lista_entrega;
-}
-
-function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
-
-}
-
-function deletarMontagem($conexao, $idmontagem, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
-
-}
-
-function listarMontagem($conexao){
-
+    return $lista_carrinho;
 }
 
 function salvarPedido($conexao, $idpedido, $idhistorico){
