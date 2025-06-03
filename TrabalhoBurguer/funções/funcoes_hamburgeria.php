@@ -353,15 +353,47 @@ function salvarEntrega($conexao, $data, $endereco, $idcliente, $identregador, $i
 } 
 
 function deletarEntrega($conexao, $identrega){
+    $sql = "DELETE FROM entrega WHERE identrega = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $identrega);
 
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
 }
 
 function listarEntrega($conexao){
+    $sql = "SELECT * FROM entrega";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_entrega = [];
+    while ($entrega = mysqli_fetch_assoc($resultados)) {
+        $lista_entrega[] = $entrega;
+    }
+    mysqli_stmt_close($comando);
 
+    return $lista_entrega;
 }
 
 function listarPedido($conexao){
+    $sql = "SELECT * FROM pedido";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_pedido = [];
+    while ($pedido = mysqli_fetch_assoc($resultados)) {
+        $lista_pedido[] = $pedido;
+    }
+    mysqli_stmt_close($comando);
 
+    return $lista_pedido;
 }
 
 function validarCliente($conexao, $nome, $senha){
@@ -373,7 +405,19 @@ function validarAdministrador($conexao, $login, $senha){
 }
 
 function listarHistorico($conexao){
+    $sql = "SELECT * FROM entrega";
+    $comando = mysqli_prepare($conexao, $sql);
     
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_entrega = [];
+    while ($entrega = mysqli_fetch_assoc($resultados)) {
+        $lista_entrega[] = $entrega;
+    }
+    mysqli_stmt_close($comando);
+
+    return $lista_entrega;
 }
 
 function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
