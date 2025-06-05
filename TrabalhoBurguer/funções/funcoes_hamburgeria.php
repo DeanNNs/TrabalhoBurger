@@ -405,7 +405,7 @@ function validarAdministrador($conexao, $login, $senha){
 }
 
 function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
-$sql = "INSERT INTO montagem (hamburguer, presunto, mussarela, alface, tomate, salsicha, ovo, bacon, milho, batata, pao, frango, quantidade, idpedido, idhistórico) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+    $sql = "INSERT INTO montagem (hamburguer, presunto, mussarela, alface, tomate, salsicha, ovo, bacon, milho, batata, pao, frango, quantidade, idpedido, idhistórico) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'iiiiiiiiiiiiiii', $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico);
@@ -418,7 +418,7 @@ $sql = "INSERT INTO montagem (hamburguer, presunto, mussarela, alface, tomate, s
 }
 
 function deletarMontagem($conexao, $idmontagem){
-$sql = "DELETE FROM montagem WHERE idmontagem = ?";
+    $sql = "DELETE FROM montagem WHERE idmontagem = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $idmontagem);
@@ -444,76 +444,4 @@ function listarMontagem($conexao){
 
     return $lista_carrinho;
 }
-
-function salvarPedido($conexao, $idpedido, $idhistorico){
-
-}
-
-function deletarPedido($conexao, $idpedido){
-
-}
-
-function listarPedidos($conexao){
-
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 ?>
