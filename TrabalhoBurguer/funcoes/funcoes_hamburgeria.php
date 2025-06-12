@@ -37,6 +37,9 @@ function deletarUsuario($conexao, $idusuario){
     
     return $funcionou;
 }
+function editarUsuario(){
+
+}
 
 function salvarHamburguer($conexao, $nome, $preco, $descricao, $idhamburguer){
     $sql = "INSERT INTO hamburguer (nome, preco, descricao) VALUES (?, ?, ?)";
