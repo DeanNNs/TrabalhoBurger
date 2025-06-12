@@ -1,10 +1,11 @@
 <?php
 require_once "../conexao.php";
 require_once "./funcoes_haburgueria.php";
-$nome="Carlos";
-$endereco="rua2";
-$telefone="123456789";
-$senha="123";
 
-salvarUsuario($conexao, $nome, $endereco, $telefone, $senha)
+$nome="Carlos";
+$email="carlos@gmail.com";
+$senha="123";
+$tipo="C";
+
+salvarUsuario($conexao, $nome, $emil, $senha, $tipo, $idusuario);
 ?>
