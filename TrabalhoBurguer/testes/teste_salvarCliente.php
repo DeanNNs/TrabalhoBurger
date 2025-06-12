@@ -6,5 +6,5 @@ $endereco="rua2";
 $telefone="123456789";
 $senha="123";
 
-salvarCliente($conexao, $nome, $endereco, $telefone, $senha)
+salvarUsuario($conexao, $nome, $endereco, $telefone, $senha)
 ?>
