@@ -1,6 +1,6 @@
 <?php
 require_once "../conexao.php";
-require_once "./funcoes_haburgueria.php";
+require_once "./funcoes_haburgeria.php";
 
 $nome="Carlos";
 $email="carlos@gmail.com";
