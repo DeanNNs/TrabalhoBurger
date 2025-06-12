@@ -397,7 +397,7 @@ function listarCarrinho($conexao){
 }
 
 function validarCliente($conexao, $nome, $senha){
-
+    
 }
 
 function validarAdministrador($conexao, $login, $senha){
