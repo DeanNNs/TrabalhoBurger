@@ -1,11 +1,11 @@
 <?php
-function salvarCliente($conexao, $nome, $endereco, $telefone, $senha){
+function salvarUsuario($conexao, $nome, $email, $senha, $tipo){
     $senha_hash = password_hash( $senha, algo: PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO cliente (nome, endereco, telefone, senha) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO cliente (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssss', $nome, $endereco, $telefone, $senha_hash);
+    mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $senha_hash, $tipo);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -13,11 +13,11 @@ function salvarCliente($conexao, $nome, $endereco, $telefone, $senha){
     // inteiro -> i
     // dinheiro, decimal -> d
 }
-function editarCliente($conexao, $nome, $endereco, $telefone, $senha, $idcliente){
-    $sql = "UPDATE cliente SET nome=?, endereco=?, telefone=?, senha WHERE idcliente=?";
+function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
+    $sql = "UPDATE cliente SET nome=?, email=?, senha=?, tipo=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $endereco, $telefone, $senha, $idcliente);
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $email, $senha, $tipo, $idusuario);
     
 
     $funcionou = mysqli_stmt_execute($comando);
@@ -26,11 +26,11 @@ function editarCliente($conexao, $nome, $endereco, $telefone, $senha, $idcliente
     return $funcionou;
 }
 
-function deletarCliente($conexao, $idcliente){
-    $sql = "DELETE FROM cliente WHERE idcliente = ?";
+function deletarUsuario($conexao, $idusuario){
+    $sql = "DELETE FROM cliente WHERE idusuario = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'i', $idcliente);
+    mysqli_stmt_bind_param($comando, 'i', $idusuario);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -308,42 +308,12 @@ function listarEntregador($conexao){
     return $lista_adicional;
 }
 
-function salvarAdministrador($conexao, $login, $senha){
-    $senha_hash = password_hash( $senha, algo: PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO cliente (login, senha) VALUES (?, ?)";
+function salvarEntrega($conexao, $data, $endereco, $telefone, $idcliente, $identregador, $idcarrinho){
+    $sql = "INSERT INTO entrega (data, endereco, telefone, idcliente, identregador, idcarrinho) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ss', $login, $senha_hash);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
-}
-
-function listarAdministrador($conexao){
-    $sql = "SELECT * FROM administrador";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_administrador = [];
-    while ($administrador = mysqli_fetch_assoc($resultados)) {
-        $lista_administrador[] = $administrador;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_administrador;
-}
-
-function salvarEntrega($conexao, $data, $endereco, $idcliente, $identregador, $idcarrinho){
-    $sql = "INSERT INTO entrega (data, endereco, idcliente, identregador, idcarrinho) VALUES (?, ?, ?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'ssiii', $data, $endereco, $idcliente, $identregador, $idcarrinho);
+    mysqli_stmt_bind_param($comando, 'sssiii', $data, $endereco, $telefone, $idcliente, $identregador, $idcarrinho);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -396,12 +366,8 @@ function listarCarrinho($conexao){
     return $lista_carrinho;
 }
 
-function validarCliente($conexao, $nome, $senha){
+function validarUsuario($conexao, $nome, $email, $senha, $tipo){
     
-}
-
-function validarAdministrador($conexao, $login, $senha){
-
 }
 
 function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
