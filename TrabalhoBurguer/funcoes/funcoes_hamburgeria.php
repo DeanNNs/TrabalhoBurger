@@ -37,8 +37,20 @@ function deletarUsuario($conexao, $idusuario){
     
     return $funcionou;
 }
-function editarUsuario(){
+function listarUsuario($conexao){
+    $sql = "SELECT * FROM usuario";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_usuario = [];
+    while ($usuario = mysqli_fetch_assoc($resultados)) {
+        $lista_usuario[] = $usuario;
+    }
+    mysqli_stmt_close($comando);
 
+    return $lista_usuario;
 }
 
 function salvarHamburguer($conexao, $nome, $preco, $descricao, $idhamburguer){
