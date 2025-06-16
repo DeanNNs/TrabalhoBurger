@@ -173,11 +173,11 @@ function salvarAdicional($conexao, $nome, $preco){
     // dinheiro, decimal -> d
 }
 
-function editarAdicionais($conexao, $preco, $nome, $tipo, $idadicional){
-    $sql = "UPDATE adicional SET preco=?  nome=?, tipo=? WHERE idadicional=?";
+function editarAdicional($conexao, $preco, $nome, $idadicional){
+    $sql = "UPDATE adicional SET preco=?  nome=? WHERE idadicional=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'dssi', $preco, $nome, $tipo, $idadicional);
+    mysqli_stmt_bind_param($comando, 'dsi', $preco, $nome, $idadicional);
     
 
     $funcionou = mysqli_stmt_execute($comando);
