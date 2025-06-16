@@ -2,7 +2,7 @@
 function salvarUsuario($conexao, $nome, $email, $senha, $tipo){
     $senha_hash = password_hash( $senha, algo: PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO cliente (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO usuario (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $senha_hash, $tipo);
