@@ -160,11 +160,11 @@ function listarBebida($conexao){
     return $lista_bebida;
 }
 
-function salvarAdcionais($conexao, $nome, $preco, $tipo){
-    $sql = "INSERT INTO bebida (tipo, nome, preco) VALUES (?, ?, ?)";
+function salvarAdicional($conexao, $nome, $preco){
+    $sql = "INSERT INTO bebida (nome, preco) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssds', $nome, $preco, $tipo);
+    mysqli_stmt_bind_param($comando, 'sd', $nome, $preco);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
