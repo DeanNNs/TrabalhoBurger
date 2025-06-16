@@ -53,11 +53,11 @@ function listarUsuario($conexao){
     return $lista_usuario;
 }
 
-function salvarHamburguer($conexao, $nome, $preco, $descricao, $idhamburguer){
+function salvarHamburguer($conexao, $nome, $preco, $descricao){
     $sql = "INSERT INTO hamburguer (nome, preco, descricao) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sdsi', $nome, $preco, $descricao, $idhamburguer);
+    mysqli_stmt_bind_param($comando, 'sds', $nome, $preco, $descricao);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
