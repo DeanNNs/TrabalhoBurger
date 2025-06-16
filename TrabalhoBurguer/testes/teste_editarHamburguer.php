@@ -1,7 +1,7 @@
 <?php
 
 require_once "../conexao.php";
-require_once "../funcoes_hamburgeria.php";
+require_once "../funcoes/funcoes_hamburgeria.php";
 
 $idhamburguer = 1;
 $nome = "Hamburguer de queijo";
