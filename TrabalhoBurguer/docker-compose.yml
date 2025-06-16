@@ -7,13 +7,13 @@ services:
     volumes:
       - ./:/var/www/html/
     ports:
-      - 8080:81
+      - 81:80
   db:
     image: mariadb:10.5
     container_name: "mariadb-server"
     restart: always
     volumes:
-      - ./documentacao/trabalho_bd.sql:/docker-entrypoint-initdb.d/trabalho_bd.sql
+      - ./documentacao/trabalho_bd.sql:/docker-entrypoint-initdb.d/script_trabalho_bd.sql
     environment:
       - MARIADB_USER=root
       - MARIADB_ROOT_PASSWORD=123
