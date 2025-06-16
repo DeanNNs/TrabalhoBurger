@@ -2,9 +2,10 @@
 require_once "../conexao.php";
 require_once "../funcoes/funcoes_hamburgeria.php";
 
-$nome = "Hamburger de Carne";
+$tipo = "refrigerante";
+$nome= "coca";
 $preco = "15.00";
-$descricao = "Pao, carne e alface";
+$volume = "2l";
 
-salvarBebidas($conexao, $nome, $preco, $descricao, $idhamburguer);
+salvarBebidas($conexao, $tipo, $nome, $preco, $volume);
 ?>
