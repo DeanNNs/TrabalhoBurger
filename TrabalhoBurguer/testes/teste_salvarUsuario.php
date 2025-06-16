@@ -4,7 +4,7 @@ require_once "../funcoes/funcoes_hamburgeria.php";
 
 $nome="Carlos";
 $email="carlos@gmail.com";
-$senha="123";
+$senha="abc123";
 $tipo="C";
 
 salvarUsuario($conexao, $nome, $email, $senha, $tipo);
