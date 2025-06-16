@@ -79,7 +79,7 @@ function editarHamburger($conexao, $nome, $preco, $descricao, $idhamburguer){
     return $funcionou;
 }
 
-function deletarHamburger ($conexao, $idhamburguer){
+function deletarHamburguer ($conexao, $idhamburguer){
     $sql = "DELETE FROM hamburguer WHERE idhamburguer = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -91,7 +91,7 @@ function deletarHamburger ($conexao, $idhamburguer){
     return $funcionou;
 }
 
-function listarHamburger($conexao){
+function listarHamburguer($conexao){
     $sql = "SELECT * FROM hamburguer";
     $comando = mysqli_prepare($conexao, $sql);
     
