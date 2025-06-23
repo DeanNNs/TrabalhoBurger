@@ -7,5 +7,5 @@ $nome= "coca";
 $preco = "15.00";
 $volume = "2l";
 
-salvarBebidas($conexao, $tipo, $nome, $preco, $volume);
+salvarBebida($conexao, $tipo, $nome, $preco, $volume);
 ?>
