@@ -27,7 +27,7 @@ function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
 }
 
 function deletarUsuario($conexao, $idusuario){
-    $sql = "DELETE FROM cliente WHERE idusuario = ?";
+    $sql = "DELETE FROM usuario WHERE idusuario = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $idusuario);
