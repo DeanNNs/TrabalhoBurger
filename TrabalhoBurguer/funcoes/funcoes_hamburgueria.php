@@ -160,11 +160,11 @@ function listarBebida($conexao){
     return $lista_bebida;
 }
 
-function salvarAdicional($conexao, $nome, $preco){
-    $sql = "INSERT INTO bebida (nome, preco) VALUES (?, ?)";
+function salvarAdicional($conexao, $preco, $nome){
+    $sql = "INSERT INTO adicional (preco, nome) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sd', $nome, $preco);
+    mysqli_stmt_bind_param($comando, 'ds', $preco, $nome);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -174,7 +174,7 @@ function salvarAdicional($conexao, $nome, $preco){
 }
 
 function editarAdicional($conexao, $preco, $nome, $idadicional){
-    $sql = "UPDATE adicional SET preco=?  nome=? WHERE idadicional=?";
+    $sql = "UPDATE adicional SET preco=?, nome=? WHERE idadicional=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'dsi', $preco, $nome, $idadicional);

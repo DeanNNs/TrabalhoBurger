@@ -5,5 +5,5 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 $nome= "batata";
 $preco = "10.00";
 
-salvarAdicional($conexao, $nome, $preco);
+salvarAdicional($conexao, $preco, $nome);
 ?>
