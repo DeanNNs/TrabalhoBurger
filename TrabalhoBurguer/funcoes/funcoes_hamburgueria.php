@@ -27,7 +27,7 @@ function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
 }
 
 function deletarUsuario($conexao, $idusuario){
-    $sql = "DELETE FROM usuario WHERE idusuario = ?";
+    $sql = "DELETE FROM cliente WHERE idusuario = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $idusuario);
@@ -65,7 +65,7 @@ function salvarHamburguer($conexao, $nome, $preco, $descricao){
     // dinheiro, decimal -> d
 }
 
-function editarHamburger($conexao, $nome, $preco, $descricao, $idhamburguer){
+function editarHamburguer($conexao, $nome, $preco, $descricao, $idhamburguer){
     $sql = "UPDATE hamburguer SET nome=?, preco=?, descricao=? WHERE idhamburguer=?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -106,7 +106,7 @@ function listarHamburguer($conexao){
     return $lista_hamburguer;
 }
 
-function salvarBebidas($conexao, $tipo, $nome, $preco, $volume){
+function salvarBebida($conexao, $tipo, $nome, $preco, $volume){
     $sql = "INSERT INTO bebida (tipo, nome, preco, volume) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -186,7 +186,7 @@ function editarAdicional($conexao, $preco, $nome, $idadicional){
     return $funcionou;
 }
 
-function deletarAdicionais($conexao, $idadicional){
+function deletarAdicional($conexao, $idadicional){
     $sql = "DELETE FROM adicional WHERE idadicional = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -198,7 +198,7 @@ function deletarAdicionais($conexao, $idadicional){
     return $funcionou;
 }
 
-function listarAdcionais($conexao){
+function listarAdcional($conexao){
     $sql = "SELECT * FROM adicional";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -214,7 +214,7 @@ function listarAdcionais($conexao){
     return $lista_adicional;
 }
 
-function salvarCombos($conexao, $nome, $preco, $descricao, $idbebida_bebida, $adicional_idadicional, $hamburguer_idhambuerguer){
+function salvarCombo($conexao, $nome, $preco, $descricao, $idbebida_bebida, $adicional_idadicional, $hamburguer_idhambuerguer){
     $sql = "INSERT INTO combo (nome, preco, descricao, idbebida_bebida, adicional_idadicional, hamburguer_idhambuerguer) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -227,11 +227,11 @@ function salvarCombos($conexao, $nome, $preco, $descricao, $idbebida_bebida, $ad
     // dinheiro, decimal -> d
 }
 
-function editarCombos($conexao, $nome, $preco, $descricao, $idbebida, $idadicional,$idhamburguer, $idcombo){
-    $sql = "UPDATE combo SET nome=?  preco=?, descricao=? idbebida=? idadicional=? idhamburguer=? WHERE idcombo=?";
+function editarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer, $idcombo){
+    $sql = "UPDATE combo SET nome=?  preco=?, descricao=? bebida_idbebida=? adicional_idadicional=? hamburguer_idhamburguer=? WHERE idcombo=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sdsiiii', $nome, $preco, $descricao, $idbebida, $idadicional, $idhamburguer, $idcombo);
+    mysqli_stmt_bind_param($comando, 'sdsiiii', $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer, $idcombo);
     
 
     $funcionou = mysqli_stmt_execute($comando);
