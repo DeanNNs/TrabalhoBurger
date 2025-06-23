@@ -3,7 +3,7 @@
 require_once "../conexao.php";
 require_once "../funcoes/funcoes_hamburgueria.php";
 
-$idbebida = 1;
+$idbebida = 3;
 $tipo = "suco";
 $nome = "Suco de uva";
 $preco = "10.00";

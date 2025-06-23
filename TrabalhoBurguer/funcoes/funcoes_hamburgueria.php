@@ -120,7 +120,7 @@ function salvarBebida($conexao, $tipo, $nome, $preco, $volume){
 }
 
 function editarBebida($conexao, $tipo, $nome, $preco, $volume, $idbebida){
-    $sql = "UPDATE bebida SET tipo=?, nome=?, preco=? volume=? WHERE idbebida=?";
+    $sql = "UPDATE bebida SET tipo=?, nome=?, preco=? ,volume=? WHERE idbebida=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'ssdsi', $tipo, $nome, $preco, $volume, $idbebida);
