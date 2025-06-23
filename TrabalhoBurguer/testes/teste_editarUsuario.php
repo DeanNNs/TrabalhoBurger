@@ -5,8 +5,9 @@ require_once "../funcoes/funcoes_hamburgeria.php";
 
 $idusuario = 1;
 $nome ="Jose";
-$email ="rua2";
+$email ="jose@gmail.com";
 $senha ="123456789";
+$tipo="C";
 
 editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario);
 

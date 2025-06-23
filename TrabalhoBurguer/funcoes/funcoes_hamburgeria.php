@@ -14,7 +14,7 @@ function salvarUsuario($conexao, $nome, $email, $senha, $tipo){
     // dinheiro, decimal -> d
 }
 function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
-    $sql = "UPDATE cliente SET nome=?, email=?, senha=?, tipo=? WHERE idusuario=?";
+    $sql = "UPDATE usuario SET nome=?, email=?, senha=?, tipo=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'ssssi', $nome, $email, $senha, $tipo, $idusuario);
