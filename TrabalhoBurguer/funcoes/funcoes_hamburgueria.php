@@ -198,7 +198,7 @@ function deletarAdicional($conexao, $idadicional){
     return $funcionou;
 }
 
-function listarAdcional($conexao){
+function listarAdicional($conexao){
     $sql = "SELECT * FROM adicional";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -214,11 +214,11 @@ function listarAdcional($conexao){
     return $lista_adicional;
 }
 
-function salvarCombo($conexao, $nome, $preco, $descricao, $idbebida_bebida, $adicional_idadicional, $hamburguer_idhambuerguer){
-    $sql = "INSERT INTO combo (nome, preco, descricao, idbebida_bebida, adicional_idadicional, hamburguer_idhambuerguer) VALUES (?, ?, ?, ?, ?, ?)";
+function salvarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer){
+    $sql = "INSERT INTO combo (nome, preco, descricao, bebida_idbebida, adicional_idadicional, hamburguer_idhamburguer) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sdsiii', $nome, $preco, $descricao, $idbebida_bebida, $adicional_idadicional, $hamburguer_idhambuerguer);
+    mysqli_stmt_bind_param($comando, 'sdsiii', $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
