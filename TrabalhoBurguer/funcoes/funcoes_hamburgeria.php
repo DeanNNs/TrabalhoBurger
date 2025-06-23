@@ -214,11 +214,11 @@ function listarAdcionais($conexao){
     return $lista_adicional;
 }
 
-function salvarCombos($conexao, $nome, $preco, $descricao, $idbebida, $idadicional, $idhamburger){
-    $sql = "INSERT INTO combo (nome, preco, descricao, idbebida, idadicional, idhamburger) VALUES (?, ?, ?, ?, ?, ?)";
+function salvarCombos($conexao, $nome, $preco, $descricao, $idbebida_bebida, $adicional_idadicional, $hamburguer_idhambuerguer){
+    $sql = "INSERT INTO combo (nome, preco, descricao, idbebida_bebida, adicional_idadicional, hamburguer_idhambuerguer) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sdsiii', $nome, $preco, $tipo, $descricao, $idbebida, $idadicional, $idhamburger);
+    mysqli_stmt_bind_param($comando, 'sdsiii', $nome, $preco, $descricao, $idbebida_bebida, $adicional_idadicional, $hamburguer_idhambuerguer);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
