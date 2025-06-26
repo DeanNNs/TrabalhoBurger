@@ -307,19 +307,19 @@ function deletarEntregador($conexao, $identregador){
 }
 
 function listarEntregador($conexao){
-    $sql = "SELECT * FROM entragador";
+    $sql = "SELECT * FROM entregador";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
     
-    $lista_adicional = [];
-    while ($adicional = mysqli_fetch_assoc($resultados)) {
-        $lista_adicional[] = $adicional;
+    $lista_entregador = [];
+    while ($entregador = mysqli_fetch_assoc($resultados)) {
+        $lista_entregador[] = $entregador;
     }
     mysqli_stmt_close($comando);
 
-    return $lista_adicional;
+    return $lista_entregador;
 }
 
 
