@@ -282,7 +282,7 @@ function salvarEntregador($conexao, $nome, $cpf, $telefone){
 }
 
 function editarEntregador($conexao, $nome, $cpf, $telefone, $identregador){
-    $sql = "UPDATE entregador SET nome=?  cpf=?, telefone=? WHERE identregador=?";
+    $sql = "UPDATE entregador SET nome=?,  cpf=?, telefone=? WHERE identregador=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $telefone, $identregador);

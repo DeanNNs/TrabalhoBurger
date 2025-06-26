@@ -3,7 +3,7 @@
 require_once "../conexao.php";
 require_once "../funcoes/funcoes_hamburgueria.php";
 
-$idcombo = 2;
+$idcombo = 1;
 $nome = "Hamburguer de maracuja";
 $preco = "10.00";
 $descricao = "Hamburguer de maracuja, batata e coca";
