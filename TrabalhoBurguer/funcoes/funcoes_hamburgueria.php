@@ -240,7 +240,7 @@ function editarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adi
     return $funcionou;
 }
 
-function deletarCombos($conexao, $idcombo){
+function deletarCombo($conexao, $idcombo){
     $sql = "DELETE FROM combo WHERE idcombo = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -252,7 +252,7 @@ function deletarCombos($conexao, $idcombo){
     return $funcionou;
 }
 
-function listarCombos($conexao){
+function listarCombo($conexao){
     $sql = "SELECT * FROM combo";
     $comando = mysqli_prepare($conexao, $sql);
     
@@ -272,7 +272,7 @@ function salvarEntregador($conexao, $nome, $cpf, $telefone){
     $sql = "INSERT INTO entregador (nome, cpf, telefone) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sdsiii', $nome, $cpf, $telefone);
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $cpf, $telefone);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -285,7 +285,7 @@ function editarEntregador($conexao, $nome, $cpf, $telefone, $identregador){
     $sql = "UPDATE entregador SET nome=?  cpf=?, telefone=? WHERE identregador=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssii', $nome, $cpf, $telefone, $identregador);
+    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $telefone, $identregador);
     
 
     $funcionou = mysqli_stmt_execute($comando);
