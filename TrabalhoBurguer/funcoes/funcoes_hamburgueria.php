@@ -379,10 +379,6 @@ function listarCarrinho($conexao){
     return $lista_carrinho;
 }
 
-function validarUsuario($conexao, $nome, $email, $senha, $tipo){
-    
-}
-
 function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
     $sql = "INSERT INTO montagem (hamburguer, presunto, mussarela, alface, tomate, salsicha, ovo, bacon, milho, batata, pao, frango, quantidade, idpedido, idhistórico) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
