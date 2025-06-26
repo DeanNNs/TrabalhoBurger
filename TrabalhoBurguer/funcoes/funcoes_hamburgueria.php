@@ -322,16 +322,16 @@ function listarEntregador($conexao){
     return $lista_entregador;
 }
 
-function salvarEntrega($conexao, $data, $endereco, $telefone, $idcliente, $identregador, $idcarrinho){
-    $sql = "INSERT INTO entrega (data, endereco, telefone, idcliente, identregador, idcarrinho) VALUES (?, ?, ?, ?, ?, ?)";
+function salvarEntrega($conexao, $data, $endereco, $telefone, $entregador_identregador, $usuario_idusuario){
+    $sql = "INSERT INTO entrega (data, endereco, telefone, entregador_identregador, usuario_idusuario) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssiii', $data, $endereco, $telefone, $idcliente, $identregador, $idcarrinho);
+    mysqli_stmt_bind_param($comando, 'sssii', $data, $endereco, $telefone, $entregador_identregador, $usuario_idusuario);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
     // varchar, string, data -> s
-    // inteiro -> i
+    // inteiro, id -> i
     // dinheiro, decimal -> d
 } 
 

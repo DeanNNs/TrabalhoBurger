@@ -2,11 +2,11 @@
 require_once "../conexao.php";
 require_once "../funcoes/funcoes_hamburgueria.php";
 
-$data = "12-22-1098"
+$data = "1098-12-22";
 $endereco = "Rua A";
-$idcliente = 1;
-$identregador = 1;
-$idcarrinho = 1;
+$telefone="123456789";
+$entregador_identregador = 1;
+$usuario_idusuario = 1;
 
-salvarEntrega($conexao, $data, $endereco, $telefone, $idcliente, $identregador, $idcarrinho);
+salvarEntrega($conexao, $data, $endereco, $telefone, $entregador_identregador, $usuario_idusuario);
 ?>
