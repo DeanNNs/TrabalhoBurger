@@ -322,7 +322,6 @@ function listarEntregador($conexao){
     return $lista_entregador;
 }
 
-
 function salvarEntrega($conexao, $data, $endereco, $telefone, $idcliente, $identregador, $idcarrinho){
     $sql = "INSERT INTO entrega (data, endereco, telefone, idcliente, identregador, idcarrinho) VALUES (?, ?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
@@ -424,4 +423,5 @@ function listarMontagem($conexao){
 
     return $lista_carrinho;
 }
+
 ?>
