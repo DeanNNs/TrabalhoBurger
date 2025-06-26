@@ -363,21 +363,6 @@ function listarEntrega($conexao){
     return $lista_entrega;
 }
 
-function listarCarrinho($conexao){
-    $sql = "SELECT * FROM carrinho";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_carrinho = [];
-    while ($carrinho = mysqli_fetch_assoc($resultados)) {
-        $lista_carrinho[] = $carrinho;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_carrinho;
-}
 
 function salvarMontagem($conexao, $hamburguer, $presunto, $mussarela, $alface, $tomate, $salsicha, $ovo, $bacon, $milho, $batata, $pao, $frango, $quantidade, $idpedido, $idhistorico){
     $sql = "INSERT INTO montagem (hamburguer, presunto, mussarela, alface, tomate, salsicha, ovo, bacon, milho, batata, pao, frango, quantidade, idpedido, idhistórico) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
