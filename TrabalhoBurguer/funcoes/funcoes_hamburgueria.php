@@ -228,7 +228,7 @@ function salvarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adi
 }
 
 function editarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer, $idcombo){
-    $sql = "UPDATE combo SET nome=?  preco=?, descricao=? bebida_idbebida=? adicional_idadicional=? hamburguer_idhamburguer=? WHERE idcombo=?";
+    $sql = "UPDATE combo SET nome=?, preco=?, descricao=?, bebida_idbebida=?, adicional_idadicional=?, hamburguer_idhamburguer=? WHERE idcombo=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sdsiiii', $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer, $idcombo);
