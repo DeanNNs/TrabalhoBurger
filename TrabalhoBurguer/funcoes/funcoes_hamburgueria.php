@@ -167,5 +167,14 @@ function salvarMontagemCombo($conexao, $produto, $combo){
     mysqli_stmt_close($comando);
 }
 
-function salvarItem($conexao, )
+function salvarItem($conexao, $idproduto, $idpedido){
+    $sql = "INSERT INTO itens (idproduto, idpedido) VALUES (?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'ii', $idproduto, $idpedido);
+    
+    mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+}
 
+function salvar
