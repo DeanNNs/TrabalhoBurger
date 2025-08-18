@@ -175,6 +175,7 @@ function salvarItem($conexao, $idproduto, $idpedido){
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
+    
 }
 
 function salvarPedido($conexao, $idpedido, $data, $endereco, $telefone, $idcombo){
