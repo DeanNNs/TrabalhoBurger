@@ -13,6 +13,7 @@ function salvarUsuario($conexao, $nome, $email, $senha, $tipo){
     // inteiro -> i
     // dinheiro, decimal -> d
 }
+
 function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
     $sql = "UPDATE usuario SET nome=?, email=?, senha=?, tipo=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
@@ -37,6 +38,7 @@ function deletarUsuario($conexao, $idusuario){
     
     return $funcionou;
 }
+
 function listarUsuario($conexao){
     $sql = "SELECT * FROM usuario";
     $comando = mysqli_prepare($conexao, $sql);
@@ -113,3 +115,56 @@ function salvarCombo($conexao, $nome, $preco, $descricao){
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
 }
+
+function editarCombo($conexao, $nome, $preco, $descricao, $idcombo){
+    $sql = "UPDATE combo SET nome=?, preco=?, descricao=?, tipo=? WHERE idcombo=?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'sssi', $nome, $preco, $descricao, $idcombo);
+    
+
+    $funcionou = mysqli_stmt_execute($comando);
+    
+    mysqli_stmt_close($comando);
+    return $funcionou;
+}
+
+function deletarCombo($conexao, $nome, $preco, $descricao, $idcombo){
+    $sql = "DELETE FROM combo WHERE idcombo = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'i', $idcombo);
+
+    $funcionou = mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
+    return $funcionou;
+}
+
+function listarCombo($conexao){
+    $sql = "SELECT * FROM combo";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_execute($comando);
+    $resultados = mysqli_stmt_get_result($comando);
+    
+    $lista_combo = [];
+    while ($combo = mysqli_fetch_assoc($resultados)) {
+        $lista_combo[] = $combo;
+    }
+    mysqli_stmt_close($comando);
+
+    return $lista_combo;
+}
+
+function salvarMontagemCombo($conexao, $produto, $combo){
+    $sql = "INSERT INTO montagem_combo (produto, combo) VALUES (?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'ii', $produto, $combo);
+    
+    mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+}
+
+function 
