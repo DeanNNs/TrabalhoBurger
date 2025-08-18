@@ -167,4 +167,5 @@ function salvarMontagemCombo($conexao, $produto, $combo){
     mysqli_stmt_close($comando);
 }
 
-function 
+function salvarItem($conexao, )
+
