@@ -53,23 +53,21 @@ function listarUsuario($conexao){
     return $lista_usuario;
 }
 
-function salvarHamburguer($conexao, $nome, $preco, $descricao){
-    $sql = "INSERT INTO hamburguer (nome, preco, descricao) VALUES (?, ?, ?)";
+function salvarProduto($conexao, $nome, $preco, $descricao, $tipo){
+    $sql = "INSERT INTO produto (nome, preco, descricao, tipo) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
-
-    mysqli_stmt_bind_param($comando, 'sds', $nome, $preco, $descricao);
+    
+    mysqli_stmt_bind_param($comando, 'ssss', $nome, $preco, $descricao, $tipo);
+    
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
 }
 
-function editarHamburguer($conexao, $nome, $preco, $descricao, $idhamburguer){
-    $sql = "UPDATE hamburguer SET nome=?, preco=?, descricao=? WHERE idhamburguer=?";
+function editarProduto($conexao, $nome, $preco, $descricao, $tipo, $idproduto){
+    $sql = "UPDATE produto SET nome=?, preco=?, descricao=?, tipo=? WHERE idproduto=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sdsi', $nome, $preco, $descricao, $idhamburguer);
+    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $preco, $descricao, $tipo, $idproduto);
     
 
     $funcionou = mysqli_stmt_execute($comando);
@@ -78,11 +76,11 @@ function editarHamburguer($conexao, $nome, $preco, $descricao, $idhamburguer){
     return $funcionou;
 }
 
-function deletarHamburguer ($conexao, $idhamburguer){
-    $sql = "DELETE FROM hamburguer WHERE idhamburguer = ?";
+function deletarProduto($conexao, $idproduto){
+    $sql = "DELETE FROM produto WHERE idproduto = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'i', $idhamburguer);
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
 
     $funcionou = mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -90,278 +88,28 @@ function deletarHamburguer ($conexao, $idhamburguer){
     return $funcionou;
 }
 
-function listarHamburguer($conexao){
-    $sql = "SELECT * FROM hamburguer";
+function listarProduto($conexao){
+    $sql = "SELECT * FROM produto";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
     
-    $lista_hamburguer = [];
-    while ($hamburguer = mysqli_fetch_assoc($resultados)) {
-        $lista_hamburguer[] = $hamburguer;
+    $lista_produto = [];
+    while ($produto = mysqli_fetch_assoc($resultados)) {
+        $lista_produto[] = $produto;
     }
     mysqli_stmt_close($comando);
 
-    return $lista_hamburguer;
+    return $lista_produto;
 }
 
-function salvarBebida($conexao, $tipo, $nome, $preco, $volume){
-    $sql = "INSERT INTO bebida (tipo, nome, preco, volume) VALUES (?, ?, ?, ?)";
+function salvarCombo($conexao, $nome, $preco, $descricao){
+    $sql = "INSERT INTO combo (nome, preco, descricao) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssds', $tipo, $nome, $preco, $volume,);
+    mysqli_stmt_bind_param($comando, 'sss', $nome, $preco, $descricao);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
 }
-
-function editarBebida($conexao, $tipo, $nome, $preco, $volume, $idbebida){
-    $sql = "UPDATE bebida SET tipo=?, nome=?, preco=? ,volume=? WHERE idbebida=?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'ssdsi', $tipo, $nome, $preco, $volume, $idbebida);
-    
-
-    $funcionou = mysqli_stmt_execute($comando);
-    
-    mysqli_stmt_close($comando);
-    return $funcionou;
-}
-
-function deletarBebida($conexao, $idbebida){
-    $sql = "DELETE FROM bebida WHERE idbebida = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idbebida);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-}
-
-function listarBebida($conexao){
-    $sql = "SELECT * FROM bebida";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_bebida = [];
-    while ($bebida = mysqli_fetch_assoc($resultados)) {
-        $lista_bebida[] = $bebida;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_bebida;
-}
-
-function salvarAdicional($conexao, $preco, $nome){
-    $sql = "INSERT INTO adicional (preco, nome) VALUES (?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'ds', $preco, $nome);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
-}
-
-function editarAdicional($conexao, $preco, $nome, $idadicional){
-    $sql = "UPDATE adicional SET preco=?, nome=? WHERE idadicional=?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'dsi', $preco, $nome, $idadicional);
-    
-
-    $funcionou = mysqli_stmt_execute($comando);
-    
-    mysqli_stmt_close($comando);
-    return $funcionou;
-}
-
-function deletarAdicional($conexao, $idadicional){
-    $sql = "DELETE FROM adicional WHERE idadicional = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idadicional);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-}
-
-function listarAdicional($conexao){
-    $sql = "SELECT * FROM adicional";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_adicional = [];
-    while ($adicional = mysqli_fetch_assoc($resultados)) {
-        $lista_adicional[] = $adicional;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_adicional;
-}
-
-function salvarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer){
-    $sql = "INSERT INTO combo (nome, preco, descricao, bebida_idbebida, adicional_idadicional, hamburguer_idhamburguer) VALUES (?, ?, ?, ?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sdsiii', $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
-}
-
-function editarCombo($conexao, $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer, $idcombo){
-    $sql = "UPDATE combo SET nome=?, preco=?, descricao=?, bebida_idbebida=?, adicional_idadicional=?, hamburguer_idhamburguer=? WHERE idcombo=?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sdsiiii', $nome, $preco, $descricao, $bebida_idbebida, $adicional_idadicional, $hamburguer_idhamburguer, $idcombo);
-    
-
-    $funcionou = mysqli_stmt_execute($comando);
-    
-    mysqli_stmt_close($comando);
-    return $funcionou;
-}
-
-function deletarCombo($conexao, $idcombo){
-    $sql = "DELETE FROM combo WHERE idcombo = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idcombo);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-}
-
-function listarCombo($conexao){
-    $sql = "SELECT * FROM combo";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_adicional = [];
-    while ($adicional = mysqli_fetch_assoc($resultados)) {
-        $lista_adicional[] = $adicional;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_adicional;
-}
-
-function salvarEntregador($conexao, $nome, $cpf, $telefone){
-    $sql = "INSERT INTO entregador (nome, cpf, telefone) VALUES (?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $cpf, $telefone);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
-}
-
-function editarEntregador($conexao, $nome, $cpf, $telefone, $identregador){
-    $sql = "UPDATE entregador SET nome=?,  cpf=?, telefone=? WHERE identregador=?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sssi', $nome, $cpf, $telefone, $identregador);
-    
-
-    $funcionou = mysqli_stmt_execute($comando);
-    
-    mysqli_stmt_close($comando);
-    return $funcionou;
-}
-
-function deletarEntregador($conexao, $identregador){
-    $sql = "DELETE FROM entregador WHERE identregador = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $identregador);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-}
-
-function listarEntregador($conexao){
-    $sql = "SELECT * FROM entregador";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_entregador = [];
-    while ($entregador = mysqli_fetch_assoc($resultados)) {
-        $lista_entregador[] = $entregador;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_entregador;
-}
-
-function salvarEntrega($conexao, $data, $endereco, $telefone, $entregador_identregador, $usuario_idusuario){
-    $sql = "INSERT INTO entrega (data, endereco, telefone, entregador_identregador, usuario_idusuario) VALUES (?, ?, ?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sssii', $data, $endereco, $telefone, $entregador_identregador, $usuario_idusuario);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro, id -> i
-    // dinheiro, decimal -> d
-} 
-
-function deletarEntrega($conexao, $identrega){
-    $sql = "DELETE FROM entrega WHERE identrega = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $identrega);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-}
-
-function listarEntrega($conexao){
-    $sql = "SELECT * FROM entrega";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_entrega = [];
-    while ($entrega = mysqli_fetch_assoc($resultados)) {
-        $lista_entrega[] = $entrega;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_entrega;
-}
-
-
-?>
