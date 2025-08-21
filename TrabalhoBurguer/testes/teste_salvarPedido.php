@@ -3,7 +3,7 @@
     require_once "../conexao.php";
 
     //YYYY-MM-DD
-    $data="2025-27-05";
+    $data="2025-05-27";
     $endereco="rua 1";
     $telefone="4002-8922";
     $idcombo=1;
