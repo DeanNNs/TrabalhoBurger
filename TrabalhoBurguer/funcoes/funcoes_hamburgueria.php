@@ -157,11 +157,11 @@ function listarCombo($conexao){
     return $lista_combo;
 }
 
-function salvarMontagemCombo($conexao, $produto, $combo){
-    $sql = "INSERT INTO montagem_combo (produto, combo) VALUES (?, ?)";
+function salvarMontagemCombo($conexao, $idproduto, $idcombo){
+    $sql = "INSERT INTO montagem_combo (idproduto, idcombo) VALUES (?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ii', $produto, $combo);
+    mysqli_stmt_bind_param($comando, 'ii', $idproduto, $idcombo);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
