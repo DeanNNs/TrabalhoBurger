@@ -167,26 +167,17 @@ function salvarMontagemCombo($conexao, $idproduto, $idcombo){
     mysqli_stmt_close($comando);
 }
 
-function salvarItem($conexao, $idproduto, $idpedido){
-    $sql = "INSERT INTO itens (idproduto, idpedido) VALUES (?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'ii', $idproduto, $idpedido);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-}
-
-function salvarPedido($conexao, $idpedido, $data, $endereco, $telefone, $idcombo){
+function salvarPedido($conexao, $data, $endereco, $telefone, $idcombo){
     $sql = "INSERT INTO pedido (idpedido, data, endereco, telefone, idcombo) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'isssi', $idpedido, $data, $endereco, $telefone, $idcombo);
+    mysqli_stmt_bind_param($comando, 'sssi', $data, $endereco, $telefone, $idcombo);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
 }
+
+
 
 function deletarPedido($conexao, $idpedido, $data, $endereco, $telefone, $idcombo){
     $sql = "DELETE FROM pedido WHERE idpedido = ?";
@@ -227,4 +218,15 @@ function listarPedido($conexao){
     mysqli_stmt_close($comando);
 
     return $lista_pedido;
+}
+
+function salvarItem($conexao, $idproduto, $idpedido){
+    $sql = "INSERT INTO itens (idproduto, idpedido) VALUES (?, ?)";
+    $comando = mysqli_prepare($conexao, $sql);
+    
+    mysqli_stmt_bind_param($comando, 'ii', $idproduto, $idpedido);
+    
+    mysqli_stmt_execute($comando);
+    mysqli_stmt_close($comando);
+    
 }
