@@ -117,7 +117,7 @@ function salvarCombo($conexao, $nome, $preco, $descricao){
 }
 
 function editarCombo($conexao, $nome, $preco, $descricao, $idcombo){
-    $sql = "UPDATE combo SET nome=?, preco=?, descricao=?, tipo=? WHERE idcombo=?";
+    $sql = "UPDATE combo SET nome=?, preco=?, descricao=? WHERE idcombo=?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'sssi', $nome, $preco, $descricao, $idcombo);
@@ -129,7 +129,7 @@ function editarCombo($conexao, $nome, $preco, $descricao, $idcombo){
     return $funcionou;
 }
 
-function deletarCombo($conexao, $nome, $preco, $descricao, $idcombo){
+function deletarCombo($conexao, $idcombo){
     $sql = "DELETE FROM combo WHERE idcombo = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
