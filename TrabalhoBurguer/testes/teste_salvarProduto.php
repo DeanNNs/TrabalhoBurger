@@ -6,6 +6,6 @@
     $preco=10.50;
     $descricao="Garrafa de 1,5 litro de suco de maracujá";
     $tipo="B";
-    salvarProduto($conexao, $nome, $preco, $descricao, $tipo)
+    salvarProduto($conexao, $nome, $preco, $descricao, $tipo);
 
 ?>
