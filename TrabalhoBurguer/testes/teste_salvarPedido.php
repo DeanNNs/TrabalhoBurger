@@ -6,8 +6,7 @@
     $data="2025-05-27";
     $endereco="rua 1";
     $telefone="4002-8922";
-    $idcombo=1;
 
-    salvarPedido($conexao, $data, $endereco, $telefone, $idcombo);
+    salvarPedido($conexao, $data, $endereco, $telefone);
 
 ?>

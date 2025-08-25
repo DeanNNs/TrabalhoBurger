@@ -8,15 +8,12 @@
 <body>
     <form action="salvarPedido.php" method="get">
     Data: <br>
-    <input type="text" name="nome"> <br><br>
+    <input type="text" name="data"> <br><br>
     Endereço: <br>
-    <input type="text" name="preco">
+    <input type="text" name="endereco">
     <br><br>
     Telefone: <br>
-    <input type="text" name="descricao">
-    <br><br>
-    Tipo do produto: <br>
-    <input type="text" name="tipo">
+    <input type="text" name="telefone">
     <br><br>
     <input type="submit" value="Cadastrar"> 
 

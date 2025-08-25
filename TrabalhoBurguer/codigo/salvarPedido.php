@@ -11,5 +11,11 @@
     require_once "../conexao.php";
     require_once "../funcoes/funcoes_hamburgueria.php";
 
-    $nome = $_GET['nome'];
-    
+    $data = $_GET['data'];
+    $endereco = $_GET['endereco'];
+    $telefone = $_GET['telefone'];
+
+    salvarPedido($conexao, $data, $endereco, $telefone);
+?>
+</body>
+</html>
