@@ -3,9 +3,10 @@
     require_once "../funcoes/funcoes_hamburgueria.php";
 
     $nome="Carlos";
+    $telefone="4002-8922";
     $email="carlos@gmail.com";
     $senha="abc123";
     $tipo="C";
 
-    salvarUsuario($conexao, $nome, $email, $senha, $tipo);
+    salvarUsuario($conexao, $nome, $telefone, $email, $senha, $tipo);
 ?>
