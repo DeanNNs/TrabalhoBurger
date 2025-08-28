@@ -6,7 +6,7 @@
     <title>Criar Produtos</title>
 </head>
 <body>
-    <form action="salvarProdutos.php" method="get">
+    <form action="salvarProduto.php" method="get">
     Nome do produto: <br>
     <input type="text" name="nome"> <br><br>
     Preço do produto: <br>
