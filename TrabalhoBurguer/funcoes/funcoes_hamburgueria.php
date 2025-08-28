@@ -13,10 +13,12 @@ function salvarUsuario($conexao, $nome, $telefone, $email, $senha, $tipo){
 }
 
 function editarUsuario($conexao, $nome, $telefone, $email, $senha, $tipo, $idusuario){
+    $senha_hash = password_hash( $senha, algo: PASSWORD_DEFAULT);
+
     $sql = "UPDATE usuario SET nome=?, telefone=?, email=?, senha=?, tipo=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssssi', $nome, $telefone, $email, $senha, $tipo, $idusuario);
+    mysqli_stmt_bind_param($comando, 'sssssi', $nome, $telefone, $email, $senha_hash, $tipo, $idusuario);
     
 
     $funcionou = mysqli_stmt_execute($comando);
