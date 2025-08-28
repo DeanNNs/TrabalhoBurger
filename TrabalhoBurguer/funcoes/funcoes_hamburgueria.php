@@ -1,24 +1,22 @@
 <?php
-function salvarUsuario($conexao, $nome, $email, $senha, $tipo){
+function salvarUsuario($conexao, $nome, $telefone, $email, $senha, $tipo){
     $senha_hash = password_hash( $senha, algo: PASSWORD_DEFAULT);
 
-    $sql = "INSERT INTO usuario (nome, email, senha, tipo) VALUES (?, ?, ?, ?)";
+    $sql = "INSERT INTO usuario (nome, telefone, email, senha, tipo) VALUES (?, ?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssss', $nome, $email, $senha_hash, $tipo);
+    mysqli_stmt_bind_param($comando, 'sssss', $nome, $email, $senha_hash, $tipo);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
-    // varchar, string, data -> s
-    // inteiro -> i
-    // dinheiro, decimal -> d
+
 }
 
-function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
-    $sql = "UPDATE usuario SET nome=?, email=?, senha=?, tipo=? WHERE idusuario=?";
+function editarUsuario($conexao, $nome, $telefone, $email, $senha, $tipo, $idusuario){
+    $sql = "UPDATE usuario SET nome=?, telefone=?, email=?, senha=?, tipo=? WHERE idusuario=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssssi', $nome, $email, $senha, $tipo, $idusuario);
+    mysqli_stmt_bind_param($comando, 'sssssi', $nome, $telefone, $email, $senha, $tipo, $idusuario);
     
 
     $funcionou = mysqli_stmt_execute($comando);
@@ -28,7 +26,7 @@ function editarUsuario($conexao, $nome, $email, $senha, $tipo, $idusuario){
 }
 
 function deletarUsuario($conexao, $idusuario){
-    $sql = "DELETE FROM cliente WHERE idusuario = ?";
+    $sql = "DELETE FROM usuario WHERE idusuario = ?";
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $idusuario);
@@ -106,72 +104,11 @@ function listarProduto($conexao){
     return $lista_produto;
 }
 
-function salvarCombo($conexao, $nome, $preco, $descricao){
-    $sql = "INSERT INTO combo (nome, preco, descricao) VALUES (?, ?, ?)";
+function salvarPedido($conexao, $data, $endereco, $valor_total){
+    $sql = "INSERT INTO pedido (data, endereco, valor_total) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sss', $nome, $preco, $descricao);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-}
-
-function editarCombo($conexao, $nome, $preco, $descricao, $idcombo){
-    $sql = "UPDATE combo SET nome=?, preco=?, descricao=? WHERE idcombo=?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sssi', $nome, $preco, $descricao, $idcombo);
-    
-
-    $funcionou = mysqli_stmt_execute($comando);
-    
-    mysqli_stmt_close($comando);
-    return $funcionou;
-}
-
-function deletarCombo($conexao, $idcombo){
-    $sql = "DELETE FROM combo WHERE idcombo = ?";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'i', $idcombo);
-
-    $funcionou = mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-    
-    return $funcionou;
-}
-
-function listarCombo($conexao){
-    $sql = "SELECT * FROM combo";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_execute($comando);
-    $resultados = mysqli_stmt_get_result($comando);
-    
-    $lista_combo = [];
-    while ($combo = mysqli_fetch_assoc($resultados)) {
-        $lista_combo[] = $combo;
-    }
-    mysqli_stmt_close($comando);
-
-    return $lista_combo;
-}
-
-function salvarMontagemCombo($conexao, $idproduto, $idcombo){
-    $sql = "INSERT INTO montagem_combo (idproduto, idcombo) VALUES (?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'ii', $idproduto, $idcombo);
-    
-    mysqli_stmt_execute($comando);
-    mysqli_stmt_close($comando);
-}
-
-function salvarPedido($conexao, $data, $endereco, $telefone){
-    $sql = "INSERT INTO pedido (data, endereco, telefone) VALUES (?, ?, ?)";
-    $comando = mysqli_prepare($conexao, $sql);
-    
-    mysqli_stmt_bind_param($comando, 'sss', $data, $endereco, $telefone);
+    mysqli_stmt_bind_param($comando, 'ssd', $data, $endereco, $valor_total);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -191,11 +128,11 @@ function deletarPedido($conexao, $idpedido){
     return $funcionou;
 }
 
-function editarPedido($conexao, $data, $endereco, $telefone, $idpedido){
-    $sql = "UPDATE pedido SET data=?, endereco=?, telefone=? WHERE idpedido=?";
+function editarPedido($conexao, $data, $endereco, $valor_total, $idpedido){
+    $sql = "UPDATE pedido SET data=?, endereco=?, valor_total=? WHERE idpedido=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'sssi', $data, $endereco, $telefone, $idpedido);
+    mysqli_stmt_bind_param($comando, 'ssdi', $data, $endereco,$idpedido);
     
 
     $funcionou = mysqli_stmt_execute($comando);
@@ -220,11 +157,11 @@ function listarPedido($conexao){
     return $lista_pedido;
 }
 
-function salvarItem($conexao, $idproduto, $idpedido){
-    $sql = "INSERT INTO itens (idproduto, idpedido) VALUES (?, ?)";
+function salvarItem($conexao, $idproduto, $idpedido, $quantidade){
+    $sql = "INSERT INTO itens (idproduto, idpedido, quantidade) VALUES (?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ii', $idproduto, $idpedido);
+    mysqli_stmt_bind_param($comando, 'iid', $idproduto, $idpedido, $quantidade);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
