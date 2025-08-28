@@ -5,10 +5,10 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
 $data ="2025-06-13";
 $endereco ="Rua 3";
-$telefone ="4002-8952";
+$valor_total =55.50;
 $idpedido =1;
 
 
-editarPedido($conexao, $data, $endereco, $telefone, $idpedido);
+editarPedido($conexao, $data, $endereco, $valor_total, $idpedido);
 
 ?>

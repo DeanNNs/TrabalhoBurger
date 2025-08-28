@@ -106,11 +106,11 @@ function listarProduto($conexao){
     return $lista_produto;
 }
 
-function salvarPedido($conexao, $data, $endereco, $valor_total){
-    $sql = "INSERT INTO pedido (data, endereco, valor_total) VALUES (?, ?, ?)";
+function salvarPedido($conexao, $data, $endereco, $valor_total, $idusuario){
+    $sql = "INSERT INTO pedido (data, endereco, valor_total, idusuario) VALUES (?, ?, ?, ?)";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssd', $data, $endereco, $valor_total);
+    mysqli_stmt_bind_param($comando, 'ssdi', $data, $endereco, $valor_total, $idusuario);
     
     mysqli_stmt_execute($comando);
     mysqli_stmt_close($comando);
@@ -134,7 +134,7 @@ function editarPedido($conexao, $data, $endereco, $valor_total, $idpedido){
     $sql = "UPDATE pedido SET data=?, endereco=?, valor_total=? WHERE idpedido=?";
     $comando = mysqli_prepare($conexao, $sql);
     
-    mysqli_stmt_bind_param($comando, 'ssdi', $data, $endereco,$idpedido);
+    mysqli_stmt_bind_param($comando, 'ssdi', $data, $endereco, $valor_total,$idpedido);
     
 
     $funcionou = mysqli_stmt_execute($comando);
