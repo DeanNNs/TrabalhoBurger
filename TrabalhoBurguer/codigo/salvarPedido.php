@@ -13,7 +13,7 @@
 
     $data = $_GET['data'];
     $endereco = $_GET['endereco'];
-    $telefone = $_GET['telefone'];
+    $ = $_GET['telefone'];
 
     salvarPedido($conexao, $data, $endereco, $telefone);
 ?>

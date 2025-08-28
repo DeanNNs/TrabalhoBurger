@@ -12,10 +12,7 @@
     Endereço: <br>
     <input type="text" name="endereco">
     <br><br>
-    Telefone: <br>
-    <input type="text" name="telefone">
-    <br><br>
-    <input type="submit" value="Cadastrar"> 
+    
 
     </form>
 </body>
