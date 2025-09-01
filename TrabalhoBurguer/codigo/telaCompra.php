@@ -40,7 +40,7 @@
         }
 
         echo '</tbody></table>';
-        echo '<input type="submit" value="Comprar" class="botao">';
+        echo '<input type="submit" value="comprar" class="botao">';
         echo '</form>';
     } else {
         echo '<p>Nenhum produto encontrado.</p>';
