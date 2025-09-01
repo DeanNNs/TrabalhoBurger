@@ -13,9 +13,8 @@
 
     $data = $_GET['data'];
     $endereco = $_GET['endereco'];
-    $ = $_GET['telefone'];
 
-    salvarPedido($conexao, $data, $endereco, $telefone);
+    salvarPedido($conexao, $data, $endereco);
 ?>
 </body>
 </html>
