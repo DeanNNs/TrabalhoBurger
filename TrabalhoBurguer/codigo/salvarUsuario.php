@@ -17,7 +17,11 @@
     $senha = $_POST['senha'];
     $tipo = "c";
 
+
     salvarUsuario($conexao, $nome, $telefone, $email, $senha, $tipo);
+    
+    
 ?>
+    <a href="../index.php">Logar</a>
 </body>
 </html>

@@ -8,15 +8,19 @@
 <body>
     <h1>Allapolo's Burger</h1>
 
-    <br><br><br><br><br><br>
-    
-    
+   <?php
 
-    <br>
-        <a href="/codigo/telaLogin.php"> <img src="/imgs/user.png" class = "user" width="50" height="50"> </a> <br><br>
+    require_once "conexao.php";
+    require_once "./codigo/verificarLogin.php";
 
-    <br><br><br>
+    session_start();
+    if ($_SESSION['logado'] == 1) {
+         echo '<a href="/codigo/deslogar.php"> <img src="/imgs/sair.png" class="sair" width="50" height="50"> </a>';
+    } else {
+       echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/user.png" class="user" width="50" height="50"> </a>';    
+    }
 
+?>
 
 </body>
 </html>
