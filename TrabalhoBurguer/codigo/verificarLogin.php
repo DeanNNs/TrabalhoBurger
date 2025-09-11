@@ -4,12 +4,17 @@ require_once "../conexao.php";
 $email = $_POST['email'];
 $senha = $_POST['senha'];
 
+if (empty($email) or empty($senha)) { 
+    header("Location: /codigo/telaLogin.php");
+    exit();
+}
+
 $sql = "SELECT * FROM usuario WHERE email = '$email'";
 
 $resultados = mysqli_query($conexao, $sql);
 
 if (mysqli_num_rows($resultados) == 0) {
-    header("Location: /codigo/formUsuario.php");
+    header("Location: /codigo/telaLogin.php");
 } else {
     $linha = mysqli_fetch_array($resultados);
     $senhaBanco = $linha['senha'];
@@ -21,5 +26,6 @@ if (mysqli_num_rows($resultados) == 0) {
     } else {
         header("Location:telaLogin.php" );
     }
+
 }
 ?>
