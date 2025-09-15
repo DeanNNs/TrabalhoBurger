@@ -2,7 +2,7 @@
     require_once "../funcoes/funcoes_hamburgueria.php";
     require_once "../conexao.php";
 
-    $idusuario=1;
+    $idusuario=9;
     deletarUsuario($conexao, $idusuario);
 
 ?>

@@ -5,7 +5,7 @@ $email = $_POST['email'];
 $senha = $_POST['senha'];
 
 if (empty($email) or empty($senha)) { 
-    header("Location: /codigo/telaLogin.php");
+    header("Location: telaLogin.php");
     exit();
 }
 
