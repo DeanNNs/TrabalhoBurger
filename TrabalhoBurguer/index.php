@@ -1,3 +1,8 @@
+<?php
+require_once "conexao.php";
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,19 +13,22 @@
 <body>
     <h1>Allapolo's Burger</h1>
 
+
+    <iframe src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
+
+
    <?php
 
-    require_once "conexao.php";
-    require_once "./codigo/verificarLogin.php";
-
-    session_start();
-    if ($_SESSION['logado'] == 1) {
+     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
          echo '<a href="/codigo/deslogar.php"> <img src="/imgs/sair.png" class="sair" width="50" height="50"> </a>';
     } else {
        echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/user.png" class="user" width="50" height="50"> </a>';    
     }
 
 ?>
+
+
+
 
 </body>
 </html>

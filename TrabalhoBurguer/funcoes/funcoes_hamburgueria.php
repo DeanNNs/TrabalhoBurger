@@ -169,3 +169,18 @@ function salvarItem($conexao, $idproduto, $idpedido, $quantidade){
     mysqli_stmt_close($comando);
     
 }
+
+function pesquisarProdutoId($conexao, $idproduto) {
+    $sql = "SELECT * FROM produto WHERE idproduto = ?";
+    $comando = mysqli_prepare($conexao, $sql);
+
+    mysqli_stmt_bind_param($comando, 'i', $idproduto);
+
+    mysqli_stmt_execute($comando);
+    $resultado = mysqli_stmt_get_result($comando);
+
+    $produto = mysqli_fetch_assoc($resultado);
+
+    mysqli_stmt_close($comando);
+    return $produto;
+};

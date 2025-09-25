@@ -10,42 +10,31 @@
     require_once "../conexao.php";
     require_once "../funcoes/funcoes_hamburgueria.php";
 
-    echo "<form method='POST' action='processoVenda.php'>";
+    echo "<form method='POST' action='adicionarCarrinho.php'>";
 
-    $sql = "SELECT * FROM produto ORDER BY nome ASC";
+    $sql = "SELECT * FROM produto ORDER BY 
+        CASE 
+            WHEN tipo = 'H' THEN 1 
+            WHEN tipo = 'B' THEN 2 
+            ELSE 3 
+        END, tipo ASC";
+
     $resultados = mysqli_query($conexao, $sql);
-
-    if (mysqli_num_rows($resultados) > 0) {
-        echo '<table>
-                <thead>
-                    <tr>
-                        <th>Escolher</th>
-                        <th>Nome</th>
-                        <th>Quantidade</th>
-                    </tr>
-                </thead>
-                <tbody>';
-
-        while ($linha = mysqli_fetch_assoc($resultados)) {
-            $id = $linha['idproduto'];
-            $nome = $linha['nome'];
-
-            echo "<tr>
-                    <td>
-                        <input type='checkbox' name='idproduto[]' value='$id'>
-                    </td>
-                    <td>$nome</td>
-                    <td><input type='number' name='quantidade[]' min='1' value='1'></td>
-                  </tr>";
-        }
-
-        echo '</tbody></table>';
-        echo '<input type="submit" value="comprar" class="botao">';
-        echo '</form>';
-    } else {
-        echo '<p>Nenhum produto encontrado.</p>';
-    }
     ?>
+
+    <ul>
+    <?php
+                $produtos = listarProduto($conexao);
+
+                foreach ($produtos as $produto):
+            ?>
+            <li>
+                <input type="checkbox" name="idproduto[]" value="<?php echo $produto['idproduto'] ?>"> R$ <span><?php echo $produto['preco']; ?></span> -- <?php echo $produto['nome']; ?> </span> -- <?php echo $produto['descricao']; ?>
+
+                <input type="number" name="quantidade[<?php echo $produto['idproduto'];?>]" value="1" min="1">
+            </li>
+            <?php endforeach; ?>
+        </ul>
 
 </body>
 </html>
