@@ -20,21 +20,19 @@
         END, tipo ASC";
 
     $resultados = mysqli_query($conexao, $sql);
-    ?>
-
-    <ul>
-    <?php
+    
                 $produtos = listarProduto($conexao);
 
-                foreach ($produtos as $produto):
-            ?>
-            <li>
-                <input type="checkbox" name="idproduto[]" value="<?php echo $produto['idproduto'] ?>"> R$ <span><?php echo $produto['preco']; ?></span> -- <?php echo $produto['nome']; ?> </span> -- <?php echo $produto['descricao']; ?>
+                foreach ($produtos as $produto){
+                    $idproduto = $produto['idproduto'];
+           
+                    echo "<a href='adicionarCarrinho.php?id=$idproduto'><img src='../imgs/adicionarCarrinho.png'></a>";
+           
+                }
+           ?>
 
-                <input type="number" name="quantidade[<?php echo $produto['idproduto'];?>]" value="1" min="1">
-            </li>
-            <?php endforeach; ?>
-        </ul>
+                
+            
 
 </body>
 </html>
