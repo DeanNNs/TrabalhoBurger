@@ -8,9 +8,9 @@
 <body>
     <h1>Categorias</h1>
 
-    <a href="escolherBebida.php">Bebidas</a> <br><br>
-    <a href="escolherHamburguer.php">Hambúrgueres</a> <br><br>
-    <a href="escolherBatata.php">Batatas</a> <br><br>
+    <a href="listarBebida.php">Bebidas</a> <br><br>
+    <a href="listarHamburguer.php">Hambúrgueres</a> <br><br>
+    <a href="listarBatata.php">Batatas</a> <br><br>
 
 </body>
 </html>
