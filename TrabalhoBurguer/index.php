@@ -15,6 +15,7 @@ session_start();
 
 
     <iframe src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
+    <iframe src="/codigo/categoriaProduto.php" width="1000" height="600" frameborder="0"></iframe>
 
 
    <?php
@@ -24,6 +25,8 @@ session_start();
     } else {
        echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/user.png" class="user" width="50" height="50"> </a>';    
     }
+
+    
 
 ?>
 
