@@ -14,7 +14,7 @@ session_start();
     <h1>Allapolo's Burger</h1>
 
 
-    <iframe src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
+    <iframe src="/codigo/Produtos.php" width="1000" height="600" frameborder="1" sandbox></iframe>
 
 
    <?php
