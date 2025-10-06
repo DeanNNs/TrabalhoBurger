@@ -7,7 +7,7 @@
 </head>
 <body>
     <?php
-    require_once "../conexao.php"
+    require_once "../conexao.php";
 
     $sql = "SELECT * FROM produto WHERE tipo = 2";
     $comando = mysqli_prepare($conexao, $sql);
