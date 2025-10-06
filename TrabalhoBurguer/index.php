@@ -13,7 +13,6 @@ session_start();
 <body>
     <h1>Allapolo's Burger</h1>
 
-
     <iframe src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
     <iframe src="/codigo/categoriaProduto.php" width="1000" height="600" frameborder="0"></iframe>
 

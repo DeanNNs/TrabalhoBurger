@@ -6,31 +6,34 @@
     <title>Compra</title>
 </head>
 <body>
+     <h1>TELA COMPRA</h1>
     <?php
     require_once "../conexao.php";
     require_once "../funcoes/funcoes_hamburgueria.php";
 
+   $produtos = listarProduto($conexao);
+
+if (count($produtos) > 0) {
     echo "<form method='POST' action='adicionarCarrinho.php'>";
-
-    $sql = "SELECT * FROM produto ORDER BY 
-        CASE 
-            WHEN tipo = 'H' THEN 1 
-            WHEN tipo = 'B' THEN 2 
-            ELSE 3 
-        END, tipo ASC";
-
-    $resultados = mysqli_query($conexao, $sql);
     
-                $produtos = listarProduto($conexao);
+    foreach ($produtos as $produto) {
+        $idproduto = $produto['idproduto'];
+        $nome = $produto['nome'];
+        $preco = $produto['preco'];
+        
+        echo "<div class='produto'>";
+        echo "<h3>$nome</h3>";
+        echo "<p>Preço: R$ $preco</p>";
+        echo "<button type='submit' name='idproduto' value='$idproduto'>Adicionar ao Carrinho</button>";
+        echo "</div>";
+    }
 
-                foreach ($produtos as $produto){
-                    $idproduto = $produto['idproduto'];
-           
-                    echo "<a href='adicionarCarrinho.php?id=$idproduto'><img src='../imgs/adicionarCarrinho.png'></a>";
-           
-                }
-           ?>
-
+    echo "</form>";
+} else {
+    echo "<p>Nenhum produto encontrado.</p>";
+}
+    ?>
+   
                 
             
 
