@@ -9,19 +9,38 @@
     <?php
     require_once "../conexao.php";
 
-    $sql = "SELECT * FROM produto WHERE tipo = 2";
+    // Consulta SQL para buscar os produtos do tipo 'B' (bebidas)
+    $sql = "SELECT * FROM produto WHERE tipo = 'B'";
     $comando = mysqli_prepare($conexao, $sql);
-    
+
+    // Executar a consulta
     mysqli_stmt_execute($comando);
     $resultados = mysqli_stmt_get_result($comando);
-    
+
+    // Inicializar um array para armazenar os produtos
     $lista_produto = [];
     while ($produto = mysqli_fetch_assoc($resultados)) {
         $lista_produto[] = $produto;
     }
+
+    // Fechar o comando após a execução
     mysqli_stmt_close($comando);
 
-    return $lista_produto;
-?>
+    // Verificar se há produtos
+    if (count($lista_produto) > 0) {
+        // Exibir os produtos em uma lista
+        echo "<ul>";
+        foreach ($lista_produto as $produto) {
+            echo "<li>";
+            echo "Nome: " . htmlspecialchars($produto['nome']) . "<br>";
+            echo "Preço: " . htmlspecialchars($produto['preco']) . "<br>";
+            echo "Descrição: " . htmlspecialchars($produto['descricao']) . "<br>";  // Adapte conforme a estrutura do banco
+            echo "</li>";
+        }
+        echo "</ul>";
+    } else {
+        echo "<p>Nenhum produto de bebida encontrado.</p>";
+    }
+    ?>
 </body>
 </html>

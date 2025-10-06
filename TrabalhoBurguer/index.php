@@ -19,7 +19,7 @@ session_start();
 
    <?php
 
-     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
+    if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
          echo '<a href="/codigo/deslogar.php"> <img src="/imgs/sair.png" class="sair" width="50" height="50"> </a>';
     } else {
        echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/user.png" class="user" width="50" height="50"> </a>';    
