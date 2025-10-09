@@ -5,11 +5,11 @@ if (!isset($_SESSION['carrinho'])) {
     $_SESSION['carrinho'] = [];
 }
 
-if (!empty($_POST['idproduto'])) {
-    $selecionados = $_POST['idproduto'];
+if (!empty($_GET['idproduto'])) {
+    $selecionados = $_GET['idproduto'];
 
     foreach ($selecionados as $id) {
-        $quantidade = $_POST['quantidade'][$id];
+        $quantidade = $_GET['quantidade'][$id];
 
         if ($quantidade < 1) {
             $quantidade = 1;
@@ -23,7 +23,5 @@ if (!empty($_POST['idproduto'])) {
         }
     }
 }
-
 header("Location: carrinho.php");
-exit;
 ?>

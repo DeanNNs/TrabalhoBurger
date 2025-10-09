@@ -14,7 +14,6 @@
    $produtos = listarProduto($conexao);
 
 if (count($produtos) > 0) {
-    echo "<form method='POST' action='adicionarCarrinho.php'>";
     
     foreach ($produtos as $produto) {
         $idproduto = $produto['idproduto'];
@@ -24,18 +23,14 @@ if (count($produtos) > 0) {
         echo "<div class='produto'>";
         echo "<h3>$nome</h3>";
         echo "<p>Preço: R$ $preco</p>";
-        echo "<button type='submit' name='idproduto' value='$idproduto'>Adicionar ao Carrinho</button>";
+        echo "<button><a style='text-decoration: none;' href='adicionarCarrinho.php?id=$idproduto&preco=$preco'>Adicionar ao carrinho</a></button>";
         echo "</div>";
     }
 
-    echo "</form>";
 } else {
     echo "<p>Nenhum produto encontrado.</p>";
 }
     ?>
-   
-                
-            
 
 </body>
 </html>
