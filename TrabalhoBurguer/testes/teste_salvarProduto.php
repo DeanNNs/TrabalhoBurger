@@ -2,10 +2,10 @@
     require_once "../funcoes/funcoes_hamburgueria.php";
     require_once "../conexao.php";
 
-    $nome="Suco de goiaba";
-    $preco=21.00;
-    $descricao="2 litros de suco de laranja";
-    $tipo="B";
+    $nome="Hamburguer fodástico";
+    $preco=25.00;
+    $descricao="foda";
+    $tipo="H";
     salvarProduto($conexao, $nome, $preco, $descricao, $tipo);
 
 ?>

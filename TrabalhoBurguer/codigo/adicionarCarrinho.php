@@ -17,11 +17,12 @@ if (!empty($_GET['idproduto'])) {
 
         if (isset($_SESSION['carrinho'][$id])) {
             $_SESSION['carrinho'][$id] += $quantidade;
-        }
-        else {
+        } else {
             $_SESSION['carrinho'][$id] = $quantidade;
         }
     }
 }
+
+print_r($selecionados);
 header("Location: carrinho.php");
-?>
+exit;

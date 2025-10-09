@@ -6,7 +6,6 @@
     <title>Compra</title>
 </head>
 <body>
-     <h1>TELA COMPRA</h1>
     <?php
     require_once "../conexao.php";
     require_once "../funcoes/funcoes_hamburgueria.php";
