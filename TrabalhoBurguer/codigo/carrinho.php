@@ -36,15 +36,15 @@ require_once "../funcoes/funcoes_hamburgueria.php";
             echo "<tr>";
             echo "<td>" . $produto['tipo'] . "</td>";
             echo "<td>" . $produto['nome'] . "</td>";
-            echo "<td> R$ <span class='preco_venda'>" . $produto['preco_venda'] . "</span></td>";
+            echo "<td> R$ <span class='preco'>" . $produto['preco'] . "</span></td>";
 
             echo "<td><input type='number' name='quantidade[$id]' class='quantidade' value='$quantidade' data-id='$id' min='1' size='2'</td>";
 
-            $total_unitario = $produto['preco_venda'] * $quantidade;
+            $total_unitario = $produto['preco'] * $quantidade;
             $total += $total_unitario;
 
             echo "<td> R$ <span class='total_unitario'>$total_unitario</span></td>";
-            echo "<td><a href='remover.php?id=$id'>[remover]</a></td>";
+            echo "<td><a href='removerCarrinho.php?id=$id'>[remover]</a></td>";
             echo "</tr>";
         }
         echo "</table>";
@@ -54,7 +54,7 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
     <p>
         <a href="telaCompra.php">Adicionar produtos</a> <br>
-        <a href="gravar.php">Gravar compra</a>
+        <a href="gravarCarrinho.php">Gravar compra</a>
     </p>
     <script>
         function atualizar_total() {
@@ -70,7 +70,7 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
         function somar() {
             const linha = $(this).closest('tr');
-            const preco_unitario = linha.find('span.preco_venda').text();
+            const preco_unitario = linha.find('span.preco').text();
             const quantidade = $(this).val();
             const id = $(this).data('id');
 
@@ -93,7 +93,7 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
             console.log("dados:", dados_enviados);
 
-            fetch('atualiza_carrinho.php', {
+            fetch('atualizaCarrinho.php', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/x-www-form-urlencoded',

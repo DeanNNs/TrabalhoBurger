@@ -39,8 +39,10 @@
         }
         echo "</ul>";
     } else {
-        echo "<p>Nenhum produto de bebida encontrado.</p>";
+        echo "<p>Nenhuma bebida encontrada.</p>";
     }
     ?>
+
+    <button><a style="text-decoration: none" href="telaCompra.php">Voltar</a></button>
 </body>
 </html>
