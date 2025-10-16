@@ -9,7 +9,7 @@
     <?php
     require_once "../conexao.php";
 
-    $sql = "SELECT * FROM produto WHERE tipo = 'B'";
+    $sql = "SELECT * FROM produto WHERE tipo = 'A'";
     $comando = mysqli_prepare($conexao, $sql);
 
     mysqli_stmt_execute($comando);
@@ -39,7 +39,7 @@
         echo "</div>";
     }
     } else {
-        echo "<p>Nenhuma bebida encontrada.</p>";
+        echo "<p>Nenhum Adicional encontrado.</p>";
     }
     ?>
     <br> 

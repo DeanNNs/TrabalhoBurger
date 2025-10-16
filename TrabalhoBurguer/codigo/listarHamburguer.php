@@ -23,15 +23,19 @@
     mysqli_stmt_close($comando);
 
     if (count($lista_produto) > 0) {
-        echo "<ul>";
-        foreach ($lista_produto as $produto) {
-            echo "<li>";
-            echo "Nome: " . htmlspecialchars($produto['nome']) . "<br>";
-            echo "Preço: " . htmlspecialchars($produto['preco']) . "<br>";
-            echo "Descrição: " . htmlspecialchars($produto['descricao']) . "<br>"; 
-            echo "</li>";
+       foreach ($lista_produto as $produto) {
+        $idproduto = $produto['idproduto'];
+        $nome = $produto['nome'];
+        $preco = $produto['preco'];
+        $descricao = $produto['descricao'];
+
+        echo "<div class='produto'>";
+        echo "<h3>$nome</h3>";
+        echo "<p>Preço: R$ $preco</p>";
+        echo "<p>$descricao</p>";
+        echo "<button><a style='text-decoration: none;' href='adicionarCarrinho.php?id=$idproduto&preco=$preco'>Adicionar ao carrinho</a></button>";
+        echo "</div>";
         }
-        echo "</ul>";
     } else {
         echo "<p>Nenhum Hamburguer encontrada.</p>";
     }

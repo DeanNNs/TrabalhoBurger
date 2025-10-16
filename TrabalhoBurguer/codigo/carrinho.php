@@ -21,7 +21,7 @@ require_once "../funcoes/funcoes_hamburgueria.php";
     $_SESSION['carrinho'];
     echo "</pre>";
     if (empty($_SESSION['carrinho'])) {
-        echo "carrinho vazio";
+        echo "Escolha Algum Produto";
     } else {
         $total = 0;
         echo "<table border='1'>";
@@ -56,7 +56,7 @@ require_once "../funcoes/funcoes_hamburgueria.php";
     ?>
 
     <p>
-        <a href="telaCompra.php">Adicionar produtos</a> <br>
+        <a href="../index.php">Adicionar produtos</a> <br>
     </p>
     <script>
         function atualizar_total() {
@@ -82,11 +82,9 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
             const total_unitario = linha.find('span.total_unitario');
             total_unitario.text(total);
-
-            /* Atualizar o valor total da compra */
+            
             atualizar_total();
 
-            /* Enviar requição para atualiza_carrinho.php para modificar sessão  */
             console.log("atualizando...");
 
             const dados_enviados = new URLSearchParams();

@@ -16,9 +16,9 @@ session_start();
     <iframe name="principal" src="/codigo/telaCompra.php" width="1000" height="600" frameborder="1"></iframe>
     <iframe src="/codigo/categoriaProduto.php" width="1000" height="600" frameborder="1"></iframe>
 
+    <a href="/codigo/carrinho.php"> <img src="/imgs/carrinho.png" class="carrinho" width="50" height="50"> </a>
 
    <?php
-
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
          echo '<a href="/codigo/deslogar.php"> <img src="/imgs/sair.png" class="sair" width="50" height="50"> </a>';
     } else {
