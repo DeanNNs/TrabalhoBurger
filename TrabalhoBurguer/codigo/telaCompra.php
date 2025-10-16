@@ -12,14 +12,6 @@
 
    $produtos = listarProduto($conexao);
 
-  $sql= SELECT * 
-    FROM produtos 
-    ORDER BY 
-  CASE 
-    WHEN tipo = 'H' THEN 1
-    WHEN tipo = 'B' THEN 2
-    WHEN tipo = 'C' THEN 3
-  END;
 
 if (count($produtos) > 0) {
     
@@ -28,11 +20,26 @@ if (count($produtos) > 0) {
         $nome = $produto['nome'];
         $preco = $produto['preco'];
         
-        echo "<div class='produto'>";
-        echo "<h3>$nome</h3>";
-        echo "<p>Preço: R$ $preco</p>";
-        echo "<button><a style='text-decoration: none;' href='adicionarCarrinho.php?id=$idproduto&preco=$preco'>Adicionar ao carrinho</a></button>";
-        echo "</div>";
+        
+
+       echo <div class="card" style="width: 18rem;">
+       echo <img src="..." class="card-img-top" alt="...">
+       echo <div class="card-body">
+       echo <h5 class="card-title">Card title</h5>
+       echo <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+        echo</div>
+        echo <ul class="list-group list-group-flush">
+        echo <li class="list-group-item">An item</li>
+        echo<li class="list-group-item">A second item</li>
+        echo<li class="list-group-item">A third item</li>
+        echo</ul>
+        echo<div class="card-body">
+        echo<a href="#" class="card-link">Card link</a>
+        echo<a href="#" class="card-link">Another link</a>
+        echo</div>
+        echo</div>
+
+
     }
 
 } else {
