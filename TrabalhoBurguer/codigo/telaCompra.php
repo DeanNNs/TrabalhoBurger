@@ -19,23 +19,17 @@ if (count($produtos) > 0) {
         $idproduto = $produto['idproduto'];
         $nome = $produto['nome'];
         $preco = $produto['preco'];
-        
+        $descricao = $produto['descricao'];
         
 
        echo <div class="card" style="width: 18rem;">
        echo <img src="..." class="card-img-top" alt="...">
        echo <div class="card-body">
-       echo <h5 class="card-title">Card title</h5>
-       echo <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card’s content.</p>
+       echo <h5 class="card-title">$nome</h5>
+       echo <p class="card-text">$descricao</p>
         echo</div>
-        echo <ul class="list-group list-group-flush">
-        echo <li class="list-group-item">An item</li>
-        echo<li class="list-group-item">A second item</li>
-        echo<li class="list-group-item">A third item</li>
-        echo</ul>
         echo<div class="card-body">
-        echo<a href="#" class="card-link">Card link</a>
-        echo<a href="#" class="card-link">Another link</a>
+        echo <button> <a style='text-decoration: none;'href="adicionarCarrinho.php?id=$idproduto&preco=$preco" class="card-link">Comprar</a></button>
         echo</div>
         echo</div>
 
