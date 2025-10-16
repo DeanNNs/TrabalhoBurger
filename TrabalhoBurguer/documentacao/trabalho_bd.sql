@@ -130,5 +130,5 @@ INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Tomate Suculento', 1
 INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Azeitonas Pretas', 2.00, 'Azeitonas pretas fatiadas para dar um toque mediterrâneo', 'A');
 
 
-INSERT INTO usuario (nome, telefone, email, senha, tipo) VALUES ('Matheus', '231341415', 'matheus@gmail.com', '123', 'A');
-INSERT INTO usuario (nome, telefone, email, senha, tipo) VALUES ('Erick', '944028922', 'erick@gmail.com', '123', 'C');
+INSERT INTO usuario (nome, telefone, email, senha, tipo) VALUES ('Matheus', '4002-9999', 'matheus@gmail.com', MD5('123456'), 'A');
+INSERT INTO usuario (nome, telefone, email, senha, tipo) VALUES ('Erick', '4002-4444', 'erick@gmail.com', MD5('123456'), 'C');
