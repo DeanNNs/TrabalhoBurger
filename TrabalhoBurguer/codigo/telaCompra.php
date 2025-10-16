@@ -25,16 +25,16 @@ if (count($produtos) > 0) {
         
 
 
-       echo <div class="card" style="width: 18rem;">
-       echo <img src="..." class="card-img-top" alt="...">
-       echo <div class="card-body">
-       echo <h5 class="card-title">$nome</h5>
-       echo <p class="card-text">$descricao</p>
-        echo</div>
-        echo<div class="card-body">
-        echo <button> <a style='text-decoration: none;'href="adicionarCarrinho.php?id=$idproduto&preco=$preco" class="card-link">Comprar</a></button>
-        echo</div>
-        echo</div>
+       echo "<div class='card' style='width: 18rem;'>";
+       echo "<img src='...' class='card-img-top' alt='...'>";
+       echo "<div class='card-body'>";
+       echo "<h5 class='card-title'>$nome</h5>";
+       echo "<p class='card-text'>$descricao</p>";
+        echo "</div>";
+        echo "<div class='card-body'>";
+        echo "<button> <a style='text-decoration: none;'href='adicionarCarrinho.php?id=$idproduto&preco=$preco' class='card-link'>Comprar</a></button>";
+        echo "</div>";
+        echo "</div>";
     }
 
 } else {
