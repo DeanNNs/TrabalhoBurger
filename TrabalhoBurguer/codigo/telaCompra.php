@@ -22,6 +22,7 @@ if (count($produtos) > 0) {
         $descricao = $produto['descricao'];
         
 
+
        echo <div class="card" style="width: 18rem;">
        echo <img src="..." class="card-img-top" alt="...">
        echo <div class="card-body">
@@ -32,8 +33,6 @@ if (count($produtos) > 0) {
         echo <button> <a style='text-decoration: none;'href="adicionarCarrinho.php?id=$idproduto&preco=$preco" class="card-link">Comprar</a></button>
         echo</div>
         echo</div>
-
-
     }
 
 } else {
