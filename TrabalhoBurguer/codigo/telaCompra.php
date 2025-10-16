@@ -12,6 +12,15 @@
 
    $produtos = listarProduto($conexao);
 
+  $sql= SELECT * 
+    FROM produtos 
+    ORDER BY 
+  CASE 
+    WHEN tipo = 'H' THEN 1
+    WHEN tipo = 'B' THEN 2
+    WHEN tipo = 'C' THEN 3
+  END;
+
 if (count($produtos) > 0) {
     
     foreach ($produtos as $produto) {
