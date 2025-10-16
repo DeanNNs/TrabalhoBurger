@@ -10,7 +10,7 @@
         Nome: <br>
         <input type="text" name="nome"> <br><br>
         Telefone: <br>
-        <input type="text" name="telefone"> <br><br>
+        <input type="text" name="telefone" id="telefone"> <br><br>
         E-mail: <br>
         <input type="text" name="email">
         <br><br>
@@ -20,6 +20,11 @@
     <input type="submit" value="Cadastrar"> 
     </form>
 
+    <script>
+        $(document).ready(function() {
+            $('#telefone').mask('00000-0000');
+        });
+    </script>
     
 </body>
 </html>

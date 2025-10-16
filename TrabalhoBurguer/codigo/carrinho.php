@@ -17,6 +17,9 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
 <body>
     <?php
+    echo "<pre>";
+    $_SESSION['carrinho'];
+    echo "</pre>";
     if (empty($_SESSION['carrinho'])) {
         echo "carrinho vazio";
     } else {
@@ -54,7 +57,6 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 
     <p>
         <a href="telaCompra.php">Adicionar produtos</a> <br>
-        <a href="gravarCarrinho.php">Gravar compra</a>
     </p>
     <script>
         function atualizar_total() {

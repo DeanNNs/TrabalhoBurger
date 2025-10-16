@@ -7,9 +7,9 @@ if (!isset($_SESSION['carrinho'])) {
 }
 
 // Verifica se o ID do produto foi enviado via GET
-if (!empty($_GET['idproduto'])) {
+if (!empty($_GET['id'])) {
     // Pode ser um único produto ou vários? Vamos tratar como um único por link
-    $id = $_GET['idproduto'];
+    $id = $_GET['id'];
 
     // Se o produto já está no carrinho, incrementa a quantidade
     if (isset($_SESSION['carrinho'][$id])) {
@@ -21,9 +21,5 @@ if (!empty($_GET['idproduto'])) {
 }
 
 // Redireciona para o carrinho (ou outra página)
-header("Location: carrinho.php");
-exit;
-
-
 header("Location: carrinho.php");
 exit;
