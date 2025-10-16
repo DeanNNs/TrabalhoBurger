@@ -28,7 +28,7 @@ if (count($produtos) > 0) {
        echo "<div class='card' style='width: 18rem;'>";
        echo "<img src='...' class='card-img-top' alt='...'>";
        echo "<div class='card-body'>";
-       echo "<h5 class='card-title'>$nome</h5>";
+       echo "<h2 class='card-title'>$nome</h2>";
        echo "<p class='card-text'>$descricao</p>";
         echo "</div>";
         echo "<div class='card-body'>";
