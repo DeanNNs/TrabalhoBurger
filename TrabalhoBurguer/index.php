@@ -21,13 +21,13 @@ session_start();
     <iframe name="principal" src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
     <iframe src="/codigo/categoriaProduto.php" width="1000" height="600" frameborder="0"></iframe>
 
-    <a href="/codigo/carrinho.php"> <img src="/imgs/carrinho.png" class="carrinho" width="50" height="50"> </a>
+    <a href="/codigo/carrinho.php"> <img src="/imgs/usuario_carrinho/carrinho.png" class="carrinho" width="50" height="50"> </a>
 
    <?php
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
-         echo '<a href="/codigo/deslogar.php"> <img src="/imgs/sair.png" class="sair" width="50" height="50"> </a>';
+         echo '<a href="/codigo/deslogar.php"> <img src="/imgs/usuario_carrinho/sair.png" class="sair" width="50" height="50"> </a>';
     } else {
-       echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/user.png" class="user" width="50" height="50"> </a>';    
+       echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/usuario_carrinho/user.png" class="user" width="50" height="50"> </a>';    
     }
 ?>
 </body>
