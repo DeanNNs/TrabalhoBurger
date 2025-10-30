@@ -22,10 +22,15 @@ if (mysqli_num_rows($resultados) == 0) {
         session_start();
         $_SESSION['logado'] = 1;
         $_SESSION['idusuario'] = $linha['idusuario'];
-        header("Location: ../index.php");
+        $_SESSION['tipo'] = $linha['tipo'];
+        if (isset($_SESSION['logado']) && $_SESSION['tipo'] == 'A') {
+            header("Location: ../telaAdministrador.php");
+        }
+        else { 
+            header("Location:../index.php");
+        } 
     } else {
         header("Location:telaLogin.php" );
     }
-
 }
 ?>

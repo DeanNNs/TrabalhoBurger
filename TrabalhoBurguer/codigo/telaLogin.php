@@ -15,7 +15,7 @@
         <input type="text" name="email"> <br><br>
         Senha: <br>
         <input type="password" name="senha"> <br><br>
-        <a href="formUsuario.php"> Cadastrar novo usuário</a>
+        <a href="formUsuario.html"> Cadastrar novo usuário</a>
         <br> <br>
         <input type="submit" value="Entrar">
 

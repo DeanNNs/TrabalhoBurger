@@ -13,8 +13,9 @@
 
     $data = $_GET['data'];
     $endereco = $_GET['endereco'];
+    $valor_total = $_GET['total'];
 
-    salvarPedido($conexao, $data, $endereco);
+    salvarPedido($conexao, $data, $endereco, $valor_total);
 ?>
 </body>
 </html>
