@@ -98,16 +98,16 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 
 
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Coca-Cola Zero', 5.99, 'Refresco de cola sem açúcar para quem quer sabor sem culpa', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Pepsi Twist', 6.49, 'Pepsi com um toque de limão refrescante', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Água com Gás Limão', 3.49, 'Água mineral com gás e sabor refrescante de limão', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Suco de Laranja Natural', 7.00, 'Suco fresco de laranja, direto da fruta para o copo', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Cerveja Artesanal Pilsen', 12.99, 'Cerveja artesanal com sabor leve e refrescante', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Milkshake de Chocolate', 8.50, 'Creme gelado com pedaços de chocolate belga', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Soda Italiana de Morango', 7.99, 'Refrigerante de morango com um toque de frescor italiano', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Fanta Uva', 4.99, 'Refresco de uva com sabor doce e marcante', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Chá Gelado de Pêssego', 5.29, 'Chá gelado com sabor suave e refrescante de pêssego', 'B');
-INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Água de Coco', 4.50, 'Água de coco pura e refrescante, direto da fruta', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Coca-Cola Zero', 5.99, 'Refresco de cola 2 litros sem açúcar para quem quer sabor sem culpa', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Pepsi Twist', 6.49, 'Pepsi com um toque de limão refrescante 350ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Água com Gás e Limão', 3.49, 'Água mineral com gás e sabor refrescante de limão 500ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Suco de Laranja Natural', 7.00, 'Suco fresco de laranja, direto da fruta para o copo de 500ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Cerveja Artesanal Pilsen', 12.99, 'Cerveja artesanal com sabor leve e refrescante 600ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Milkshake de Chocolate', 8.50, 'Creme gelado com pedaços de chocolate belga 320ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Soda Italiana de Morango', 7.99, 'Refrigerante de morango com um toque de frescor italiano 350ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Fanta Uva', 4.99, 'Refresco de uva com sabor doce e marcante 350ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Chá Gelado de Pêssego', 5.29, 'Chá gelado com sabor suave e refrescante de pêssego 350ml', 'B');
+INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Água de Coco', 4.50, 'Água de coco pura e refrescante, direto da fruta 350ml', 'B');
 INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Hambúrguer Clássico', 19.99, 'Pão macio, hambúrguer suculento, queijo cheddar, alface e molho especial', 'H');
 INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Cheddar Bacon Deluxe', 23.50, 'Hambúrguer com queijo cheddar derretido e bacon crocante', 'H');
 INSERT INTO produto (nome, preco, descricao, tipo) VALUES ('Veggie Supreme', 18.00, 'Hambúrguer vegetariano com cogumelos, alface, tomate e maionese vegana', 'H');
