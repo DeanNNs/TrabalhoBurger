@@ -56,7 +56,16 @@ require_once "../funcoes/funcoes_hamburgueria.php";
     ?>
 
     <p>
-        <a href="../index.php">Adicionar produtos</a> <br>
+        <a href="../index.php">Adicionar produtos</a> <br> <br>
+        <?php
+            if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
+
+                
+             echo '<a href="finalizarCompra.php"> Finalize sua compra </a>';
+            } else {
+             echo '<a href="telaLogin.php"> Faça login para finalizar sua compra</a>';    
+         }
+        ?>
     </p>
     <script>
         function atualizar_total() {
