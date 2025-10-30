@@ -21,7 +21,8 @@ require_once "../funcoes/funcoes_hamburgueria.php";
     $_SESSION['carrinho'];
     echo "</pre>";
     if (empty($_SESSION['carrinho'])) {
-        echo "Escolha Algum Produto";
+        echo "Escolha Algum Produto <br><br>";
+        echo "<a href='../index.php'>Adicionar produtos</a> <br> <br>";
     } else {
         $total = 0;
         echo "<table border='1'>";
@@ -52,14 +53,9 @@ require_once "../funcoes/funcoes_hamburgueria.php";
         }
         echo "</table>";
         echo "<h3>Total da compra: R$ <span id='total'>$total</span></h3>";
-    }
-    ?>
-
-    <p>
-        <a href="../index.php">Adicionar produtos</a> <br> <br>
-        <?php
+            echo "<a href='../index.php'>Adicionar produtos</a> <br> <br>";
             if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
-            echo "<form action='salvarPedido.php' method='get'>";
+            echo "<form action='salvarPedido.php?total=$total' method='get'>";
             echo "Data:<br>";
             echo "<input type='text' name='data'><br><br>";
             echo "Endereço:<br>";
@@ -69,8 +65,9 @@ require_once "../funcoes/funcoes_hamburgueria.php";
             } else {
              echo '<a href="telaLogin.php"> Faça login para finalizar sua compra</a>';    
          }
-        ?>
-    </p>
+    }
+    ?>
+
     <script>
         function atualizar_total() {
             let total = 0;
