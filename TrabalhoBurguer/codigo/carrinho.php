@@ -59,9 +59,13 @@ require_once "../funcoes/funcoes_hamburgueria.php";
         <a href="../index.php">Adicionar produtos</a> <br> <br>
         <?php
             if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
-
-            
-             echo '<a href="finalizarCompra.php"> Finalize sua compra </a>';
+            echo "<form action='salvarPedido.php' method='get'>";
+            echo "Data:<br>";
+            echo "<input type='text' name='data'><br><br>";
+            echo "Endereço:<br>";
+            echo "<input type='text' name='endereco'>";
+            echo "</form><br><br>";
+            echo "<input type='submit' value='Finalizar'>"; 
             } else {
              echo '<a href="telaLogin.php"> Faça login para finalizar sua compra</a>';    
          }
