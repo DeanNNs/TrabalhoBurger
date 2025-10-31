@@ -1,38 +1,3 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Burguer Delivery</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <!-- Faixa do Topo -->
-    <header class="header">
-        <h1 class="logo">Burguer Master</h1>
-    </header>
-
-    <!-- Container Principal -->
-    <main class="container">
-        <!-- Iframe dos Produtos -->
-        <div class="iframe-container">
-            <iframe src="produtos.html" class="produto-iframe" title="Lista de Produtos"></iframe>
-        </div>
-        
-        <!-- Iframe da Listagem Seletiva -->
-        <div class="iframe-container">
-            <iframe src="filtro.html" class="filtro-iframe" title="Filtro de Produtos"></iframe>
-        </div>
-    </main>
-
-    <!-- Fundo com Hamburgueres Caindo -->
-    <div class="background-falling"></div>
-</body>
-</html>
-
-
-
-
 * {
     margin: 0;
     padding: 0;
@@ -48,7 +13,7 @@ body {
 
 /* Header */
 .header {
-    background: linear-gradient(135deg, #8B4513, #A0522D);
+    background: linear-gradient(135deg, #fae524, #dadd22);
     color: white;
     padding: 1rem 2rem;
     text-align: center;
