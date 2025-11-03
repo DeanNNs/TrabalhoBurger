@@ -140,6 +140,19 @@ body {
     opacity: 0.9;
 }
 
+.rodape-burguer {
+    background: #333;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: auto;
+}
+
+.texto-rodape {
+    font-size: 0.9rem;
+    opacity: 0.8;
+}
+
 @media (max-width: 1100px) {
     .container-principal {
         flex-direction: column;
@@ -160,8 +173,8 @@ body {
 
     <div class="conteiner-principal">
         <div class="frame-produtos">
-            <div class="frame-produtos">
-                <iframe name="principal" src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
+            <div class="titulo-frame">
+                <iframe name="principal" src="/codigo/telaCompra.php" class="iframe-estilizado"></iframe>
             </div>
 
 
@@ -187,7 +200,8 @@ body {
     }
 ?>
 
-    <!-- Fundo com Hamburgueres Caindo -->
-    <div class="background-falling"></div>
+    <footer class="rodape-burguer">
+        <p class="texto-rodape">Burguer Delícia &copy; 2023 - Todos os direitos reservados</p>
+    </footer>
 </body>
 </html>
