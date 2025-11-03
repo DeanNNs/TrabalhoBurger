@@ -14,8 +14,8 @@
 
   $idusuario = $_GET['idusuario'];
 
-  if (deletarUsuario($conexao, $idusuario)) {
-    header("Location: listarUsuario.php");
+  if (deletarProduto($conexao, $idproduto)) {
+    header("Location: listarProduto.php");
   } else {
     header("Location: erro.php");
   }

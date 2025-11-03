@@ -13,7 +13,8 @@ session_start();
 
 <body>
     <h1>Modo Administrador</h1> <br><br><br>
-    <a href="./codigo/formProduto.html">Adicionar um novo produto</a>
+    <a href="./codigo/formProduto.html">Adicionar um novo produto</a> <br> <br>
+    <a href="./codigo/deletarPro.html">Deletar um produto</a> <br> <br>
     <a href="./codigo/listarUsuario.php">Listar Usuarios</a>
 </body>
 
