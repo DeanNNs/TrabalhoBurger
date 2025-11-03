@@ -43,7 +43,6 @@
       echo "<td>$telefone</td>";
       echo "<td>$email</td>";
       echo "<td>$tipo</td>";
-      echo "<td><a href='deletarUsuario.php?id=$idusuario'>Excluir</a></td>";
       echo "<td><a href='atualizarUsuario.php?id=$idusuario'>Editar</a></td>";
       echo "</tr>";
     }

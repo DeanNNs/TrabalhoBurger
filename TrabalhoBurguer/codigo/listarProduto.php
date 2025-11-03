@@ -1,0 +1,33 @@
+ <?php
+    require_once "../conexao.php";
+    require_once "../funcoes/funcoes_hamburgueria.php";
+
+   $produtos = listarProduto($conexao);
+
+
+if (count($produtos) > 0) {
+    
+    foreach ($produtos as $produto) {
+        $idproduto = $produto['idproduto'];
+        $nome = $produto['nome'];
+        $preco = $produto['preco'];
+        $descricao = $produto['descricao'];
+        
+
+
+       echo "<div class='card' style='width: 18rem;'>";
+       echo "<img src='...' class='card-img-top' alt='...'>";
+       echo "<div class='card-body'>";
+       echo "<h2 class='card-title'>$nome</h2>";
+       echo "<p class='card-text'>$descricao</p>";
+        echo "</div>";
+        echo "<div class='card-body'>";
+        echo "<button> <a style='text-decoration: none;'href='deletarProduto.php?id=$idproduto' class='card-link'>Excluir</a></button>";
+        echo "</div>";
+        echo "</div>";
+    }
+
+} else {
+    echo "<p>Nenhum produto encontrado.</p>";
+}
+    ?>
