@@ -9,7 +9,6 @@
 
 <body>
   <h1>Lista de Usuarios</h1>
-
   <?php
   require_once "../conexao.php";
   require_once "../funcoes/funcoes_hamburgueria.php";
@@ -43,13 +42,14 @@
       echo "<td>$telefone</td>";
       echo "<td>$email</td>";
       echo "<td>$tipo</td>";
-      echo "<td><a href='deletarUsuario.php?id=$idusuario'>Excluir</a></td>";
       echo "<td><a href='atualizarUsuario.php?id=$idusuario'>Editar</a></td>";
       echo "</tr>";
     }
   }
     ?>
     </table>
+    <br><br>
+     <a href="../telaAdministrador.php">Voltar</a><br><br>
 </body>
 
 </body>

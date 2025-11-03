@@ -14,8 +14,9 @@ session_start();
 <body>
     <h1>Modo Administrador</h1> <br><br><br>
     <a href="./codigo/formProduto.html">Adicionar um novo produto</a> <br> <br>
-    <a href="./codigo/deletarPro.html">Deletar um produto</a> <br> <br>
-    <a href="./codigo/listarUsuario.php">Listar Usuarios</a>
+    <a href="./codigo/listarProduto.php">Deletar um produto</a> <br> <br>
+    <a href="./codigo/listarUsuario.php">Listar Usuarios</a><br><br>
+    <a href="./codigo/deslogar.php">Sair</a><br><br>
 </body>
 
 </html>
