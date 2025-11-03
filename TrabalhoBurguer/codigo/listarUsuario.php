@@ -9,7 +9,6 @@
 
 <body>
   <h1>Lista de Usuarios</h1>
-
   <?php
   require_once "../conexao.php";
   require_once "../funcoes/funcoes_hamburgueria.php";
@@ -49,6 +48,8 @@
   }
     ?>
     </table>
+    <br><br>
+     <a href="../telaAdministrador.php">Voltar</a><br><br>
 </body>
 
 </body>

@@ -31,3 +31,5 @@ if (count($produtos) > 0) {
     echo "<p>Nenhum produto encontrado.</p>";
 }
     ?>
+    <br><br>
+    <a href="../telaAdministrador.php">Voltar</a>

@@ -16,7 +16,6 @@ session_start();
     <a href="./codigo/formProduto.html">Adicionar um novo produto</a> <br> <br>
     <a href="./codigo/listarProduto.php">Deletar um produto</a> <br> <br>
     <a href="./codigo/listarUsuario.php">Listar Usuarios</a><br><br>
-    <a href="./codigo/listarUsuario.php">Listar Usuarios</a><br><br>
     <a href="./codigo/deslogar.php">Sair</a><br><br>
 </body>
 
