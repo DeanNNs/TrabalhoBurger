@@ -79,13 +79,8 @@ function editarProduto($conexao, $nome, $preco, $descricao, $tipo, $idproduto){
 }
 
 function deletarProduto($conexao, $idproduto){
-    $sql = "SELECT * FROM produto ORDER BY 
-        CASE 
-            WHEN tipo = 'H' THEN 1 
-            WHEN tipo = 'B' THEN 2 
-            ELSE 3 
-        END, tipo ASC
-        WHERE idproduto = ?";
+    $sql = "SELECT * FROM produto WHERE idproduto = ?";
+                                    
     $comando = mysqli_prepare($conexao, $sql);
     
     mysqli_stmt_bind_param($comando, 'i', $idproduto);
