@@ -62,32 +62,32 @@ body {
 
 .container-principal {
     display: flex;
-    flex-wrap: wrap;
-    max-width: 1400px;
+    justify-content: center;
+    align-items: flex-start;
+    max-width: 1200px;
     margin: 30px auto;
     padding: 0 20px;
     gap: 30px;
-    justify-content: center;
 }
 
-.frame-produtos {
-    flex: 1;
-    min-width: 500px;
+.frame-produtos-central {
+    width: 80%;
+    max-width: 1000px;
     background: white;
     border-radius: 16px;
     overflow: hidden;
     box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin: 0 auto;
 }
 
-.frame-produtos:hover {
+.frame-produtos-central:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
-.frame-categorias {
-    flex: 1;
-    min-width: 500px;
+.frame-categorias-lateral {
+    width: 300px;
     background: white;
     border-radius: 16px;
     overflow: hidden;
@@ -95,13 +95,13 @@ body {
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.frame-categorias:hover {
+.frame-categorias-lateral:hover {
     transform: translateY(-5px);
     box-shadow: 0 12px 30px rgba(0, 0, 0, 0.12);
 }
 
 .iframe-estilizado {
-    width: 100%;
+    width: 50%;
     height: 600px;
     border: none;
     display: block;
@@ -172,36 +172,39 @@ body {
     </header>
 
     <div class="conteiner-principal">
-        <div class="frame-produtos">
+        <div class="frame-produtos-central">
             <div class="titulo-frame">
                 <iframe name="principal" src="/codigo/telaCompra.php" class="iframe-estilizado"></iframe>
             </div>
 
 
-
-            <div class="frame-categorias">
-                <iframe src="/codigo/categoriaProduto.php" width="1000" height="600" frameborder="0"></iframe>
+            <div class="frame-categorias-lateral">
+                <div class="titulo-frame">
+                    <iframe src="/codigo/categoriaProduto.php" class="iframe-estilizado"></iframe>
+                </div>
             </div>
         </div>
     </div>
 
     <div class="nav-icones">
-        <a href="/codigo/carrinho.php" class="icone-carrinho"> <img src="/imgs/usuario_carrinho/carrinho.png" alt="Carrinho" width="50" height="50"> </a>
+        <a href="/codigo/carrinho.php" class="icone-carrinho">
+            <img src="/imgs/usuario_carrinho/carrinho.png" alt="Carrinho">
+        </a>
+    
+        <?php
+     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
+            echo'<a href="/codigo/deslogar.php" class="icone-sair"> 
+                    <img src="/imgs/usuario_carrinho/sair.png" alt="Sair"> 
+                </a>';
+         } else {
+            echo'<a href="/codigo/telaLogin.php" class="icone-usuario">
+                    <img src="/imgs/usuario_carrinho/user.png" alt="Usuario">
+                </a>';
+            }
+        ?>
     </div>
-   <?php
-    if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
-        echo '<div class="icone-sair">';
-        echo '<a href="/codigo/deslogar.php"> <img src="/imgs/usuario_carrinho/sair.png" class="sair" width="50" height="50"> </a>';
-        echo '</div>';
-        } else {
-        echo '<div class="icone-usuario">';
-        echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/usuario_carrinho/user.png" class="user" width="50" height="50"> </a>';
-        echo '</div>'; 
-    }
-?>
-
     <footer class="rodape-burguer">
-        <p class="texto-rodape">Burguer Delícia &copy; 2023 - Todos os direitos reservados</p>
+        <p class="texto-rodape">Allapolo's Burguer &copy; 2025 - Todos os direitos reservados</p>
     </footer>
 </body>
 </html>

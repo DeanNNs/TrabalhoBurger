@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="../css/style.css"></link>
 </head>
 <style>
-    .titulo-frame {
+.titulo-frame {
     background: linear-gradient(135deg, #ffcc00, #ffaa00);
     color: #8B4513;
     padding: 16px 24px;
@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     gap: 10px;
-    }
+}
 
 .titulo-frame::before {
     content: "🍔";

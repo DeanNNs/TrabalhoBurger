@@ -17,7 +17,7 @@
     gap: 10px;
 }
 
-.titulo-frame:before {
+.frame-categorias-lateral .titulo-frame::before {
     content: "📋";
 }
 </style>
