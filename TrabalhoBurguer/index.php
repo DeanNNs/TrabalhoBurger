@@ -106,32 +106,84 @@ body {
     border: none;
     display: block;
 }
+
+.icone-sair, .icone-carrinho, .icone-usuario {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+    background: white;
+}
+
+.icone-carrinho:hover, .icone-usuario:hover, .icone-sair:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+ .icone-carrinho, .icone-usuario, .icone-sair {
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+}
+
+ .icone-carrinho img, .icone-usuario img, .icone-sair img {
+    width: 40px;
+    height: 40px;
+    filter: brightness(0.9);
+}
+
+ .slogan-delivery {
+    font-size: 1.2rem;
+    font-weight: 500;
+    opacity: 0.9;
+}
+
+@media (max-width: 1100px) {
+    .container-principal {
+        flex-direction: column;
+        align-items: center;
+    }
+    .frame-produtos, .frame-categorias {
+        min-width: 90%;
+    }
+}
 </style>
 <body>
 
     <!-- Faixa do Topo -->
     <header class="header">
         <h1 class="logo">Allapolo's Burger</h1>
+        <p class="slogan-delivery">Os melhores hambúrgueres da cidade, entregues na sua casa!</p>
     </header>
 
-    <div class="iframe-estilizado">
-        <div class="conteiner-principal">
+    <div class="conteiner-principal">
+        <div class="frame-produtos">
             <div class="frame-produtos">
                 <iframe name="principal" src="/codigo/telaCompra.php" width="1000" height="600" frameborder="0"></iframe>
             </div>
+
+
+
             <div class="frame-categorias">
                 <iframe src="/codigo/categoriaProduto.php" width="1000" height="600" frameborder="0"></iframe>
             </div>
         </div>
     </div>
 
-    <a href="/codigo/carrinho.php"> <img src="/imgs/usuario_carrinho/carrinho.png" class="carrinho" width="50" height="50"> </a>
-
+    <div class="nav-icones">
+        <a href="/codigo/carrinho.php" class="icone-carrinho"> <img src="/imgs/usuario_carrinho/carrinho.png" alt="Carrinho" width="50" height="50"> </a>
+    </div>
    <?php
     if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
-         echo '<a href="/codigo/deslogar.php"> <img src="/imgs/usuario_carrinho/sair.png" class="sair" width="50" height="50"> </a>';
-    } else {
-       echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/usuario_carrinho/user.png" class="user" width="50" height="50"> </a>';    
+        echo '<div class="icone-sair">';
+        echo '<a href="/codigo/deslogar.php"> <img src="/imgs/usuario_carrinho/sair.png" class="sair" width="50" height="50"> </a>';
+        echo '</div>';
+        } else {
+        echo '<div class="icone-usuario">';
+        echo '<a href="/codigo/telaLogin.php"> <img src="/imgs/usuario_carrinho/user.png" class="user" width="50" height="50"> </a>';
+        echo '</div>'; 
     }
 ?>
 
