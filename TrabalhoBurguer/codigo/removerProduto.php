@@ -6,4 +6,5 @@
 
   deletarProduto($conexao, $idproduto);
 
+  header("Location: listarProduto.php");
   ?>

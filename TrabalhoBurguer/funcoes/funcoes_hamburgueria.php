@@ -79,7 +79,7 @@ function editarProduto($conexao, $nome, $preco, $descricao, $tipo, $idproduto){
 }
 
 function deletarProduto($conexao, $idproduto){
-    $sql = "SELECT * FROM produto WHERE idproduto = ?";
+    $sql = "DELETE FROM produto WHERE idproduto = ?";
                                     
     $comando = mysqli_prepare($conexao, $sql);
     
