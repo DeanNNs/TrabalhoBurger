@@ -34,30 +34,30 @@ require_once "../funcoes/funcoes_hamburgueria.php";
         echo "<td>Total unitário</td>";
         echo "<td>Remover</td>";
         echo "</tr>";
-        foreach ($_SESSION['carrinho'] as $id => $quantidade) {
-            $produto = pesquisarProdutoId($conexao, $id);
+        foreach ($_SESSION['carrinho'] as $idproduto => $quantidade) {
+            $produto = pesquisarProdutoId($conexao, $idproduto);
 
             echo "<tr>";
             echo "<td>" . $produto['tipo'] . "</td>";
             echo "<td>" . $produto['nome'] . "</td>";
             echo "<td> R$ <span class='preco'>" . $produto['preco'] . "</span></td>";
 
-            echo "<td><input type='number' name='quantidade[$id]' class='quantidade' value='$quantidade' data-id='$id' min='1' size='2'</td>";
+            echo "<td><input type='number' name='quantidade[$idproduto]' class='quantidade' value='$quantidade' data-id='$idproduto' min='1' size='2'></td>";
 
             $total_unitario = $produto['preco'] * $quantidade;
             $total += $total_unitario;
 
             echo "<td> R$ <span class='total_unitario'>$total_unitario</span></td>";
-            echo "<td><a href='removerCarrinho.php?id=$id'>[remover]</a></td>";
+            echo "<td><a href='removerCarrinho.php?id=$idproduto'>[remover]</a></td>";
             echo "</tr>";
         }
         echo "</table>";
         echo "<h3>Total da compra: R$ <span id='total'>$total</span></h3>";
             echo "<a href='../index.php'>Adicionar produtos</a> <br> <br>";
             if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
-            echo "<form action='salvarPedido.php?total=$total' method='get'>";
+            echo "<form action='salvarPedido.php?total=$total' method='POST'>";
             echo "Data:<br>";
-            echo "<input type='text' name='data'><br><br>";
+            echo "<input type='date' name='data'><br><br>";
             echo "Endereço:<br>";
             echo "<input type='text' name='endereco'><br><br>";
             echo "<input type='submit' value='Finalizar'>"; 

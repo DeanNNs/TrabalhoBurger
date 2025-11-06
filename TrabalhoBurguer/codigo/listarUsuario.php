@@ -1,4 +1,4 @@
-
+<html>
 <body>
   <h1>Lista de Usuarios</h1>
   <?php
@@ -45,5 +45,4 @@
 </body>
 
 </body>
-
 </html>
