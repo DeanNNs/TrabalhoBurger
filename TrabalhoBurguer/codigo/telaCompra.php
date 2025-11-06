@@ -7,23 +7,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../css/style.css"></link>
 </head>
-<style>
-.titulo-frame {
-    background: linear-gradient(135deg, #ffcc00, #ffaa00);
-    color: #8B4513;
-    padding: 16px 24px;
-    font-size: 1.4rem;
-    font-weight: 700;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.titulo-frame::before {
-    content: "🍔";
-    font-size: 1.6rem;
-}
-</style>
 <body>
 
     <div>

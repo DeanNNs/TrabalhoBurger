@@ -70,6 +70,26 @@ body {
     gap: 30px;
 }
 
+.titulo-frame {
+    background: linear-gradient(135deg, #ffcc00, #ffaa00);
+    color: #8B4513;
+    padding: 16px 24px;
+    font-size: 1.4rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.titulo-frame::before {
+    content: "🍔";
+    font-size: 1.6rem;
+}
+
+.frame-categorias-lateral .titulo-frame::before {
+    content: "📋";
+}
+
 .frame-produtos-central {
     width: 80%;
     max-width: 1000px;
@@ -173,16 +193,14 @@ body {
 
     <div class="conteiner-principal">
         <div class="frame-produtos-central">
-            <div class="titulo-frame">
-                <iframe name="principal" src="/codigo/telaCompra.php" class="iframe-estilizado"></iframe>
-            </div>
+            <div class="titulo-frame">Produtos</div>
+            <iframe name="principal" src="/codigo/telaCompra.php" class="iframe-estilizado"></iframe>
+        </div>
 
 
-            <div class="frame-categorias-lateral">
-                <div class="titulo-frame">
-                    <iframe src="/codigo/categoriaProduto.php" class="iframe-estilizado"></iframe>
-                </div>
-            </div>
+        <div class="frame-categorias-lateral">
+            <div class="titulo-frame">Categorias</div>
+            <iframe src="/codigo/categoriaProduto.php" class="iframe-estilizado"></iframe>
         </div>
     </div>
 
