@@ -8,11 +8,6 @@
     <link rel="stylesheet" href="../css/style.css"></link>
 </head>
 <body>
-
-    <div>
-        <h1 class="titulo-frame">Produtos</h1>
-    </div>
-
     <?php
     require_once "../conexao.php";
     require_once "../funcoes/funcoes_hamburgueria.php";

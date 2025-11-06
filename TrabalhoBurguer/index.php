@@ -23,7 +23,7 @@
     <div class="container-principal">
         <!-- Iframe de produtos à esquerda -->
         <div class="frame-produtos-esquerda">
-            <div class="titulo-frame">Nossos Produtos</div>
+            <div class="titulo-frame">Produtos</div>
             <iframe name="principal" src="/codigo/telaCompra.php" class="iframe-estilizado"></iframe>
         </div>
         

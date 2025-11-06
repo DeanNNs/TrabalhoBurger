@@ -7,9 +7,9 @@
 </head>
 <body>
 
-    <a href="listarBebida.php" target="principal" >Bebidas</a> <br><br>
-    <a href="listarHamburguer.php" target="principal">Hambúrgueres</a> <br><br>
-    <a href="listarAdicional.php" target="principal">Adicionais</a> <br><br>
+    <button><a href="listarBebida.php" target="principal" >Bebidas</a> </button> <br><br>
+    <button><a href="listarHamburguer.php" target="principal">Hambúrgueres</a> </button> <br><br>
+    <button><a href="listarAdicional.php" target="principal">Adicionais</a> </button> <br><br>
 
 </body>
 </html>
