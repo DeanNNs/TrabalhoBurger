@@ -22,7 +22,7 @@ if (count($produtos) > 0) {
        echo "<p class='card-text'>$descricao</p>";
         echo "</div>";
         echo "<div class='card-body'>";
-        echo "<button> <a style='text-decoration: none;'href='deletarProduto.php?id=$idproduto' class='card-link'>Excluir</a></button>";
+        echo "<button> <a style='text-decoration: none;'href='removerProduto.php?id=$idproduto' class='card-link'>Remover</a></button>";
         echo "</div>";
         echo "</div>";
     }
