@@ -1,20 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-</head>
-<body>
-    <?php
-    require_once "../conexao.php";
-    require_once "../funcoes/funcoes_hamburgueria.php";
+<?php
+  require_once "../conexao.php";
+  require_once "../funcoes/funcoes_hamburgueria.php";
 
-    $idusuario = $_GET['id'];
+  $idusuario = $_GET['id'];
 
-    deletarUsuario($conexao, $idusuario);
+  deletarUsuario($conexao, $idusuario);
 
-header("Location: listarUsuario.php");
-    ?>
-</body>
-</html>
+  header("Location: listarUsuario.php");
+?>

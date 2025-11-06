@@ -4,27 +4,57 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Produtos</title>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../css/style.css"></link>
+    <link rel="stylesheet" href="../css/styleAdministrador.css"></link>
+</head>
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Produtos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        
+    </style>
 </head>
 <body>
-    <form action="salvarProduto.php" method="get">
-    Nome do produto: <br>
-    <input type="text" name="nome"> <br><br>
-    Preço do produto: <br>
-    <input type="text" name="preco">
-    <br><br>
-    Descrição do produto: <br>
-    <input type="text" name="descricao">
-    <br><br>
-    Tipo do produto: <br>
-    <input type="text" name="tipo">
-    <br><br>
-    <input type="submit" value="Cadastrar"> 
-
-    </form>
-    <br><br>
-    <a href="../telaAdministrador.php">Voltar</a>
+    <div class="form-container">
+        <h1>Adicionar Produto</h1>
+        
+        <form action="salvarProduto.php" method="get">
+            <div class="form-group">
+                <label for="nome">Nome do produto:</label>
+                <input type="text" id="nome" name="nome" placeholder="Digite o nome do produto" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="preco">Preço do produto:</label>
+                <input type="text" id="preco" name="preco" placeholder="Digite o preço (ex: 29.99)" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="descricao">Descrição do produto:</label>
+                <input type="text" id="descricao" name="descricao" placeholder="Descreva o produto" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="tipo">Tipo do produto:</label>
+                <select id="tipo" name="tipo" required>
+                    <option value="">Selecione o tipo</option>
+                    <option value="A">A - Adicional</option>
+                    <option value="H">H - Hamburguer</option>
+                    <option value="B">B - Bebida</option>
+                </select>
+                <div class="type-explanation">
+                    A: Adicional | H: Hamburguer | B: Bebida
+                </div>
+            </div>
+            
+            <button type="submit" class="submit-btn">Adicionar Produto</button>
+        </form>
+        
+        <a href="../telaAdministrador.php" class="back-link">Voltar ao Painel</a>
+    </div>
 </body>
+</html>
 </html>
