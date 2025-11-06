@@ -59,9 +59,9 @@ require_once "../funcoes/funcoes_hamburgueria.php";
             echo "Data:<br>";
             echo "<input type='text' name='data'><br><br>";
             echo "Endereço:<br>";
-            echo "<input type='text' name='endereco'>";
-            echo "</form><br><br>";
+            echo "<input type='text' name='endereco'><br><br>";
             echo "<input type='submit' value='Finalizar'>"; 
+            echo "</form>";
             } else {
              echo '<a href="telaLogin.php"> Faça login para finalizar sua compra</a>';    
          }
