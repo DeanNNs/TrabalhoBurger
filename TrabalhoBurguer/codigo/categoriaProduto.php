@@ -9,7 +9,7 @@
 </head>
 <body>
 
-    <button class="btn-categoria"><a style='text-decoration: none;' href="listarBebida.php" target="principal" >Bebidas</a> </button> <br><br>
+    <button class="btn-categoria"><a style='text-decoration: none;' href="listarBebida.php" target="principal" >🧃  Bebidas</a> </button> <br><br>
     <button class="btn-categoria"><a style='text-decoration: none;' href="listarHamburguer.php" target="principal">Hambúrgueres</a> </button> <br><br>
     <button class="btn-categoria"><a style='text-decoration: none;' href="listarAdicional.php" target="principal">Adicionais</a> </button> <br><br>
 
