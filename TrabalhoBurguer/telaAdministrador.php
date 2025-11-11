@@ -19,7 +19,7 @@ require_once "./codigo/verificarLogado.php";
         <h1>Modo Administrador</h1>
 
         <div class="admin-menu">
-            <a href="./codigo/formProduto.html" class="admin-link">Adicionar um novo produto</a>
+            <a href="./codigo/formProduto.php" class="admin-link">Adicionar um novo produto</a>
             <a href="./codigo/listarProduto.php" class="admin-link">Deletar um produto</a>
             <a href="./codigo/listarUsuario.php" class="admin-link">Listar Usuários</a>
             <a href="./codigo/listarPedido.php" class="admin-link">Listar Pedidos</a>
