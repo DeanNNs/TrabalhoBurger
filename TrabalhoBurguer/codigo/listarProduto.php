@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
@@ -29,11 +30,10 @@
                 $descricao = $produto['descricao'];
 
                 echo "<div class='card'>";
-                echo "<div class='card-img-top'>Imagem do Produto</div>";
                 echo "<div class='card-body'>";
                 echo "<h2 class='card-title'>" . htmlspecialchars($nome) . "</h2>";
                 echo "<p class='card-text'>" . htmlspecialchars($descricao) . "</p>";
-                echo "<p class='card-text'><strong>Preço: R$ " . number_format($preco, 2, ',', '.') . "</strong></p>";
+                echo "<p class='card-preco'>R$ " . number_format($preco, 2, ',', '.') . "</p>";
                 echo "</div>";
                 echo "<div class='card-actions'>";
                 echo "<button class='botao'>";
