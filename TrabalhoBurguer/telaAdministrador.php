@@ -1,5 +1,6 @@
 <?php
-session_start();
+
+require_once "./codigo/verificarLogado.php";
 ?>
 
 <!DOCTYPE html>
