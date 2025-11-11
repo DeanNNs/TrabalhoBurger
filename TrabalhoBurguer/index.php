@@ -12,7 +12,12 @@ session_start();
     <title>Hamburgueria - Delivery</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-
+.logo-empresa{
+    width: 1000px;
+    text-align: center;
+    margin: auto;
+    display: block;
+}
     </style>
 </head>
 <body>
@@ -21,6 +26,8 @@ session_start();
         <h1 class="logo-hamburgueria">ALLAPOLO'S BURGER</h1>
         <p class="slogan-delivery">Os melhores hambúrgueres da cidade, entregues na sua casa!</p>
     </header>
+
+    <img src="/imgs/Allapolo's.png" class = "logo-empresa">
 
     <!-- Container principal com iframes lado a lado -->
     <div class="container-principal">
