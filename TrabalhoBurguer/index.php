@@ -40,17 +40,17 @@ session_start();
     <!-- Ícones de navegação -->
     <div class="nav-icones">
         <a href="/codigo/carrinho.php" class="icone-carrinho">
-            <img src="/imgs/usuario_carrinho/carrinho.png" alt="Carrinho">
+            <img src="/imgs/carrinho.png" alt="Carrinho">
         </a>
         
         <?php
         if (isset($_SESSION['logado']) && $_SESSION['logado'] == 1) {
             echo '<a href="/codigo/deslogar.php" class="icone-sair">
-                    <img src="/imgs/usuario_carrinho/sair.png" alt="Sair">
+                    <img src="/imgs/sair.png" alt="Sair">
                   </a>';
         } else {
             echo '<a href="/codigo/telaLogin.php" class="icone-usuario">
-                    <img src="/imgs/usuario_carrinho/user.png" alt="Usuário">
+                    <img src="/imgs/user.png" alt="Usuário">
                   </a>';    
         }
         ?>
