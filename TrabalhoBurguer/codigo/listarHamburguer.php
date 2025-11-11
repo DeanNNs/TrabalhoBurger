@@ -1,3 +1,4 @@
+<link rel="stylesheet" href="../css/style.css">
 <body>
      <?php
     require_once "../conexao.php";
@@ -22,11 +23,16 @@
         $preco = $produto['preco'];
         $descricao = $produto['descricao'];
 
-        echo "<div class='produto'>";
-        echo "<h3>$nome</h3>";
-        echo "<p>Preço: R$ $preco</p>";
-        echo "<p>$descricao</p>";
-        echo "<button><a style='text-decoration: none;' href='adicionarCarrinho.php?id=$idproduto&preco=$preco'>Adicionar ao carrinho</a></button>";
+        echo "<div class='card' style='width: 18rem;'>";
+        echo "<div class='card-body'>";
+        echo "<h2 class='card-title'>$nome</h2>";
+        echo "<p class='card-text'>$descricao</p>";
+        echo "</div>";
+        echo "<br><br>";
+        echo "<div class='card-body'>";
+        echo "<button class='btn-comprar'> <a style='text-decoration: none;'href='adicionarCarrinho.php?id=$idproduto&preco=$preco' class='card-link'>Comprar</a></button>";
+        echo "</div>";
+        echo "<br><br><br>";
         echo "</div>";
         }
     } else {
