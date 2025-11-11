@@ -10,4 +10,6 @@
     $idusuario = $_SESSION['idusuario'];
     
     salvarPedido($conexao, $data, $endereco, $valor_total, $idusuario);
+
+    header("Location:../index.html");
 ?>
