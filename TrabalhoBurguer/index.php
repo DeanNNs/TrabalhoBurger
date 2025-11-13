@@ -10,10 +10,7 @@ session_start();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@37,31.2&display=swap" rel="stylesheet">
     <title>Hamburgueria - Delivery</title>
-    <link rel="stylesheet" href="../css/style.css">
-    <style>
-
-    </style>
+    <link rel="stylesheet" href="../css/style.css"> 
 </head>
 <body>
     <header class="header-burguer">
