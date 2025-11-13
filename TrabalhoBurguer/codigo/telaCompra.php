@@ -23,8 +23,6 @@ if (count($produtos) > 0) {
         $preco = $produto['preco'];
         $descricao = $produto['descricao'];
         
-
-
         echo "<div class='card' style='width: 18rem;'>";
         echo "<div class='card-body'>";
         echo "<h2 class='card-title'>$nome</h2>";

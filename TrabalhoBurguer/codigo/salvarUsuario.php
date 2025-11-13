@@ -10,8 +10,6 @@ $senha = $_POST['senha'];
 $tipo = "C";
 
 
-
-
 if (empty($nome) or empty($telefone) or empty($email) or empty($senha)) {
     header("Location: ./formUsuario.php");
     exit();

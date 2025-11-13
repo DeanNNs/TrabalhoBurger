@@ -16,7 +16,6 @@ session_start();
     </style>
 </head>
 <body>
-    <!-- Faixa amarela do topo -->
     <header class="header-burguer">
         <h1 class="logo-hamburgueria">ALLAPOLO'S BURGER</h1>
         <p class="slogan-delivery">Os melhores hambúrgueres da cidade, entregues na sua casa!</p>
@@ -24,22 +23,18 @@ session_start();
 
     <img src="/imgs/Allapolo's.png" class = "logo-empresa">
 
-    <!-- Container principal com iframes lado a lado -->
     <div class="container-principal">
-        <!-- Iframe de produtos à esquerda -->
         <div class="frame-produtos-esquerda">
             <div class="titulo-frame">Produtos</div>
             <iframe name="principal" src="/codigo/telaCompra.php" class="iframe-estilizado"></iframe>
         </div>
         
-        <!-- Iframe de categorias à direita -->
         <div class="frame-categorias-direita">
             <div class="titulo-frame">Categorias</div>
             <iframe src="/codigo/categoriaProduto.php" class="iframe-estilizado"></iframe>
         </div>
     </div>
 
-    <!-- Ícones de navegação -->
     <div class="nav-icones">
         <a href="/codigo/carrinho.php" class="icone-carrinho">
             <img src="/imgs/carrinho.png" alt="Carrinho">
@@ -58,9 +53,8 @@ session_start();
         ?>
     </div>
 
-    <!-- Rodapé -->
     <footer class="rodape-burguer">
-        <p class="texto-rodape">ALLAPOLO'S BURGER &copy; 2023 - Todos os direitos reservados</p>
+        <p class="texto-rodape">ALLAPOLO'S BURGER &copy; 2025 - Todos os direitos reservados</p>
     </footer>
 </body>
 </html>

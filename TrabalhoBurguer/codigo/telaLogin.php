@@ -10,20 +10,17 @@
     <link rel="stylesheet" href="../css/style.css">
 </head>
 <body>
-    <!-- Faixa amarela do topo -->
     <header class="cabecalho-hamburgueria">
         <h1 class="titulo-principal">ALLAPOLO'S BURGER</h1>
         <p class="subtitulo-principal">Os melhores hambúrgueres da cidade, entregues na sua casa!</p>
     </header>
 
-    <!-- Container principal -->
     <div class="container-login">
         <form action="verificarLogin.php" method="post" class="formulario-login">
             <h2 class="titulo-login">Acessar Conta</h2>
             <p class="subtitulo-login">Entre com seus dados para continuar</p>
             
             <?php
-            // Exemplo de mensagem de erro (opcional)
             if (isset($_GET['erro']) && $_GET['erro'] == 1) {
                 echo '<div class="mensagem-alerta mensagem-erro">E-mail ou senha incorretos!</div>';
             }
@@ -51,9 +48,8 @@
         </form>
     </div>
 
-    <!-- Rodapé -->
     <footer class="rodape-hamburgueria">
-        <p class="texto-rodape">ALLAPOLO'S BURGER &copy; 2023 - Todos os direitos reservados</p>
+        <p class="texto-rodape">ALLAPOLO'S BURGER &copy; 2025 - Todos os direitos reservados</p>
     </footer>
 </body>
 </html>
