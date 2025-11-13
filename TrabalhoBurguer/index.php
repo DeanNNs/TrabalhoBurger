@@ -12,12 +12,7 @@ session_start();
     <title>Hamburgueria - Delivery</title>
     <link rel="stylesheet" href="../css/style.css">
     <style>
-.logo-empresa{
-    width: 1000px;
-    text-align: center;
-    margin: auto;
-    display: block;
-}
+
     </style>
 </head>
 <body>
