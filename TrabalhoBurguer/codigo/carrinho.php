@@ -382,13 +382,11 @@ require_once "../funcoes/funcoes_hamburgueria.php";
 </head>
 
 <body>
-    <!-- Faixa amarela do topo -->
     <header class="cabecalho-carrinho">
         <h1 class="titulo-carrinho">ALLAPOLO'S BURGER</h1>
         <p class="subtitulo-carrinho">Seu carrinho de compras</p>
     </header>
 
-    <!-- Container principal -->
     <div class="container-carrinho">
         <?php
         if (empty($_SESSION['carrinho'])) {
@@ -460,9 +458,8 @@ require_once "../funcoes/funcoes_hamburgueria.php";
         ?>
     </div>
 
-    <!-- Rodapé -->
     <footer class="rodape-carrinho">
-        <p class="texto-rodape">ALLAPOLO'S BURGER &copy; 2023 - Todos os direitos reservados</p>
+        <p class="texto-rodape">ALLAPOLO'S BURGER &copy; 2025 - Todos os direitos reservados</p>
     </footer>
 
     <script>
