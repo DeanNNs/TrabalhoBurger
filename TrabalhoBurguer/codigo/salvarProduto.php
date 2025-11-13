@@ -9,4 +9,6 @@
     $tipo = $_GET['tipo'];
 
     salvarProduto($conexao, $nome, $preco, $descricao, $tipo);
+
+    header("Location:../telaAdministrador.php");
 ?>
