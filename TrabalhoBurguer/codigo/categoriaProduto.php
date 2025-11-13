@@ -9,9 +9,9 @@
 </head>
 <body>
 
-    <button class="btn-categoria"><a style='text-decoration: none;' href="listarBebida.php" target="principal" >🧃  Bebidas</a> </button> <br><br>
-    <button class="btn-categoria"><a style='text-decoration: none;' href="listarHamburguer.php" target="principal">Hambúrgueres</a> </button> <br><br>
-    <button class="btn-categoria"><a style='text-decoration: none;' href="listarAdicional.php" target="principal">Adicionais</a> </button> <br><br>
+    <button class="btn-categoria"><a style='text-decoration: none;' href="listarBebida.php" target="principal" class="bebidas">Bebidas</a> </button> <br><br>
+    <button class="btn-categoria"><a style='text-decoration: none;' href="listarHamburguer.php" target="principal" class="hamburgueres">Hambúrgueres</a> </button> <br><br>
+    <button class="btn-categoria"><a style='text-decoration: none;' href="listarAdicional.php" target="principal" class="adicionais">Adicionais</a> </button> <br><br>
 
 </body>
 </html>
