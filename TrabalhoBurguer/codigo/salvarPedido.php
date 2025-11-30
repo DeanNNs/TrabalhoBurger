@@ -11,5 +11,5 @@
     
     salvarPedido($conexao, $data, $endereco, $valor_total, $idusuario);
 
-    header("Location:../index.php");
+    header("Location:pedidoFinalizado.php");
 ?>

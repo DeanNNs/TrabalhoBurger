@@ -1,12 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <?php
+<?php
     
     require_once "../conexao.php";
     require_once "../funcoes/funcoes_hamburgueria.php";
@@ -17,6 +9,6 @@
     $tipo = $_GET['tipo'];
 
     salvarProduto($conexao, $nome, $preco, $descricao, $tipo);
+
+    header("Location:../telaAdministrador.php");
 ?>
-</body>
-</html>
