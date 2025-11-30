@@ -17,7 +17,6 @@ require_once "../funcoes/funcoes_hamburgueria.php";
     <link href="https://fonts.googleapis.com/css2?family=Honk:MORF,SHLN@37,31.2&display=swap" rel="stylesheet">
     <script src="../jquery-3.7.1.min.js"></script>
     <style>
-        /* Reset e configurações globais */
         * {
             margin: 0;
             padding: 0;
