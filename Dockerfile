@@ -1,6 +1,6 @@
 FROM php:8.2-apache
 
-# Instala extensões
+# Instala extensões PHP
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # Ativa rewrite
@@ -13,7 +13,7 @@ COPY . /var/www/html/
 RUN chown -R www-data:www-data /var/www/html \
     && chmod -R 755 /var/www/html
 
-# 🔥 Apache vai escutar SEMPRE na porta do Railway
+# Porta usada pelo Railway
 ENV PORT=8080
 
 RUN sed -i "s/Listen 80/Listen ${PORT}/g" /etc/apache2/ports.conf && \
