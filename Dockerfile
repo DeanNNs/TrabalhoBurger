@@ -1,21 +1,18 @@
-FROM php:8.1-apache
+FROM php:8.2-apache
 
-# Diretório do site
-WORKDIR /var/www/html
+# Desabilita todos os MPMs
+RUN a2dismod mpm_event mpm_worker || true
 
-# Copia todos os arquivos do projeto
-COPY . .
+# Habilita apenas o prefork
+RUN a2enmod mpm_prefork
 
-# Extensão do MySQL
-RUN docker-php-ext-install mysqli
+# Instala extensões PHP necessárias
+RUN docker-php-ext-install mysqli pdo pdo_mysql
 
-# Habilita rewrite
-RUN a2enmod rewrite
-
-# Porta dinâmica do Railway
+# Porta usada pelo Railway
 ENV PORT=8080
+RUN sed -i 's/80/${PORT}/g' /etc/apache2/ports.conf /etc/apache2/sites-available/000-default.conf
+
 EXPOSE 8080
 
-# Apache escutando a porta do Railway
-RUN sed -i 's/80/${PORT}/g' /etc/apache2/ports.conf \
- && sed -i 's/:80/:${PORT}/g' /etc/apache2/sites-available/000-default.conf
+CMD ["apache2-foreground"]
