@@ -1,18 +1,25 @@
+# Imagem base com PHP + Apache
 FROM php:8.2-apache
 
-# Desabilita todos os MPMs
-RUN a2dismod mpm_event mpm_worker || true
-
-# Habilita apenas o prefork
-RUN a2enmod mpm_prefork
-
-# Instala extensões PHP necessárias
-RUN docker-php-ext-install mysqli pdo pdo_mysql
-
-# Porta usada pelo Railway
+# Define a porta usada pelo Railway
 ENV PORT=8080
-RUN sed -i 's/80/${PORT}/g' /etc/apache2/ports.conf /etc/apache2/sites-available/000-default.conf
 
+# Muda o Apache para escutar na porta 8080
+RUN sed -i 's/80/8080/g' /etc/apache2/ports.conf \
+ && sed -i 's/:80/:8080/g' /etc/apache2/sites-available/000-default.conf
+
+# Habilita módulos comuns do Apache
+RUN a2enmod rewrite
+
+# Copia os arquivos do projeto para o Apache
+COPY . /var/www/html/
+
+# Define permissões corretas
+RUN chown -R www-data:www-data /var/www/html \
+ && chmod -R 755 /var/www/html
+
+# Expõe a porta usada pelo Railway
 EXPOSE 8080
 
-CMD ["apache2-foreground"]
+# COMANDO MAIS IMPORTANTE (não deixa o container morrer)
+CMD ["apachectl", "-D", "FOREGROUND"]
