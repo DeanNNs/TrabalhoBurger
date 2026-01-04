@@ -4,7 +4,7 @@ FROM php:8.2-apache
 RUN docker-php-ext-install mysqli pdo pdo_mysql
 
 # 2. Habilita o mod_rewrite
-RUN a2enmod rewrite
+RUN a2dismod mpm_event || true && a2enmod mpm_prefork && a2enmod rewrite
 
 # 3. Copia os arquivos
 COPY . /var/www/html/
@@ -19,4 +19,4 @@ RUN sed -i 's/<VirtualHost \*:80>/<VirtualHost *:${PORT}>/g' /etc/apache2/sites-
 
 # 6. COMANDO DE INICIALIZAÇÃO
 # Usamos o formato de shell para garantir que as variáveis de ambiente ($PORT) sejam lidas
-CMD ["sh", "-c", "apache2-foreground"]
+CMD ["apache2-foreground"]
